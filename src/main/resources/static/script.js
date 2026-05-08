@@ -247,7 +247,7 @@ const defaultProposals = [
     price: "260,000원",
     schedule: "5주",
     portfolio: "",
-    sales: "공간별 빛 연출 이미지를 중심으로 프로젝트 갤러리와 연동 판매합니다.",
+    sales: "공간별 빛 연출 이미지를 중심으로 이음 갤러리와 연동 판매합니다.",
     status: "초안 보완 요청",
     artisan: "정관채",
     artisanId: "dyeing",
@@ -283,7 +283,8 @@ const artisanWorkLists = {
     { title: "프리미엄 패션 표면 마감", period: "제품 전환", description: "착용성과 장식성을 함께 고려해 금박의 위치, 크기, 반복 간격을 조정합니다." },
   ],
   dyeing: [
-    { title: "천연 염색 색감 조율", period: "대표 작업", description: "염료의 농도와 시간에 따라 달라지는 직물의 색 깊이를 조절합니다." },
+    { title: "천연 염색 색감 조율", period: "대표 작업", image: "/assets/jung-kwanchae-work-drying.png", description: "염료의 농도와 시간에 따라 달라지는 직물의 색 깊이를 조절합니다. 바람과 햇빛 속에서 천을 말리며 쪽빛의 농담을 확인하는 과정이 작업의 핵심입니다." },
+    { title: "쪽빛 블라인드 원단 개발", period: "심화 작업", image: "/assets/jung-kwanchae-work-indigo.png", description: "정관채 염색장은 쪽, 감, 식물성 염료가 직물에 스며드는 시간을 세밀하게 조절해 빛을 통과시켰을 때 색이 탁해지지 않는 원단감을 만듭니다. 같은 파랑 안에서도 농담과 번짐이 살아나도록 여러 차례 염색과 건조를 반복하는 작업입니다." },
     { title: "창가 빛 투과 테스트", period: "협업 연구", description: "블라인드가 빛을 받을 때 자연 풍경처럼 보이도록 색 번짐과 밀도를 실험합니다." },
     { title: "공간 패브릭 샘플", period: "제품 전환", description: "실내 분위기와 채광 조건에 맞는 블라인드 원단 구성을 만듭니다." },
   ],
@@ -410,7 +411,7 @@ function ensureDemoUsers() {
         price: proposal.price || "168,000원",
         schedule: proposal.schedule || "6주",
         portfolio: proposal.portfolio || "",
-        sales: proposal.sales || "프로젝트 갤러리와 한정 판매 흐름으로 소개합니다.",
+        sales: proposal.sales || "이음 갤러리와 한정 판매 흐름으로 소개합니다.",
         status: proposal.status || "검토 중",
         artisan: proposal.artisan || artisans[artisanId].name,
         artisanId,
@@ -990,6 +991,7 @@ function renderWorksPage() {
         .map(
           (work) => `
             <article class="work-item">
+              ${work.image ? `<img src="${work.image}" alt="${artisan.name} ${work.title}">` : ""}
               <p>${work.period}</p>
               <h3>${work.title}</h3>
               <span>${work.description}</span>
@@ -1313,7 +1315,7 @@ function setupNavIndicator() {
       return linkByLabel("장인 소개");
     }
     if (path.startsWith("/product")) {
-      return linkByLabel("프로젝트 갤러리");
+      return linkByLabel("이음 갤러리");
     }
     return null;
   };

@@ -118,12 +118,12 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 0;
   min-width: 260px;
 }
 
 .brand-mark {
-  display: grid;
+  display: none;
   width: 42px;
   height: 42px;
   place-items: center;
@@ -142,6 +142,13 @@ img {
 .brand strong,
 .brand small {
   display: block;
+}
+
+.brand strong {
+  font-size: clamp(28px, 2.7vw, 42px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0;
 }
 
 .nav {
@@ -829,9 +836,13 @@ h3 {
   border-radius: 999px;
 }
 
+.artisan-feature-profile .eyebrow {
+  font-size: clamp(16px, 1.4vw, 22px);
+}
+
 .artisan-feature-copy h3 {
   margin: 0;
-  font-size: clamp(28px, 3.25vw, 52px);
+  font-size: clamp(26px, 2.75vw, 44px);
   line-height: 1.14;
   word-break: keep-all;
 }
@@ -883,6 +894,10 @@ h3 {
   color: var(--ink);
   font-size: 18px;
   font-weight: 900;
+}
+
+.artisan-feature-note strong {
+  margin-bottom: 10px;
 }
 
 .artisan-work-card p {
@@ -1123,6 +1138,16 @@ h3 {
 
 .work-item {
   padding: 22px;
+}
+
+.work-item img {
+  display: block;
+  width: calc(100% + 44px);
+  height: 260px;
+  margin: -22px -22px 18px;
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 1px solid var(--line);
 }
 
 .work-item p {
@@ -1700,7 +1725,7 @@ h3 {
   }
 
   .brand strong {
-    font-size: 14px;
+    font-size: 26px;
   }
 
   .header-cta {
