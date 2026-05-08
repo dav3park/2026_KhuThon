@@ -51,4 +51,14 @@ public class Product extends BaseTimeEntity {
     private SaleStatus saleStatus;
 
     private LocalDateTime saleOpenAt;
+
+    public void decreaseStock() {
+        if (this.remainStock == null || this.remainStock <= 0) {
+            throw new OutOfStockException(this.id);
+        }
+        this.remainStock -= 1;
+        if (this.remainStock == 0) {
+            this.saleStatus = SaleStatus.SOLD_OUT;
+        }
+    }
 }
