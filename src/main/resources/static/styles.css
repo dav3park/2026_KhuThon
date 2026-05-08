@@ -12,6 +12,8 @@
   --line: rgba(32, 25, 18, .14);
   --shadow: 0 22px 70px rgba(43, 31, 18, .16);
   --button-shadow: 0 14px 34px rgba(27, 23, 20, .22);
+  --hanji-warm: url("/assets/hanji-warm.png");
+  --hanji-white: url("/assets/hanji-white.png");
 }
 
 * {
@@ -26,8 +28,12 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
-  background:
-    linear-gradient(180deg, #fffdf7 0%, #f7f4ed 46%, #fffaf0 100%);
+  background-color: #faf2df;
+  background-image:
+    linear-gradient(180deg, rgba(255, 253, 247, .62), rgba(248, 241, 227, .74)),
+    var(--hanji-warm);
+  background-size: auto, 760px auto;
+  background-attachment: fixed;
 }
 
 a {
@@ -47,6 +53,7 @@ img {
 }
 
 .site-header {
+  --header-paper: var(--hanji-warm);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -56,10 +63,15 @@ img {
   gap: 24px;
   padding: 16px clamp(18px, 4vw, 64px);
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 253, 247, .88);
+  background-color: rgba(255, 248, 232, .9);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .58), rgba(246, 232, 203, .68)),
+    var(--header-paper);
+  background-size: auto, 620px auto;
   backdrop-filter: blur(22px);
   transition:
     background-color .24s ease,
+    background-image .24s ease,
     border-color .24s ease,
     color .24s ease;
 }
@@ -70,13 +82,37 @@ img {
   left: 0;
   color: rgba(255, 255, 255, .9);
   border-bottom-color: rgba(255, 255, 255, .16);
-  background: rgba(12, 12, 12, .42);
 }
 
 .home-page .site-header.is-solid {
   color: var(--ink);
   border-bottom-color: var(--line);
-  background: rgba(255, 253, 247, .9);
+}
+
+.site-header.header-video {
+  color: rgba(255, 255, 255, .9);
+  border-bottom-color: rgba(255, 255, 255, .16);
+  background: rgba(12, 12, 12, .42);
+}
+
+.site-header.header-hanji-warm {
+  --header-paper: var(--hanji-warm);
+  color: var(--ink);
+  border-bottom-color: rgba(32, 25, 18, .14);
+  background-color: rgba(255, 248, 232, .9);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .56), rgba(246, 232, 203, .68)),
+    var(--header-paper);
+}
+
+.site-header.header-hanji-white {
+  --header-paper: var(--hanji-white);
+  color: var(--ink);
+  border-bottom-color: rgba(32, 25, 18, .14);
+  background-color: rgba(255, 255, 255, .92);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .72), rgba(250, 248, 241, .78)),
+    var(--header-paper);
 }
 
 .brand {
@@ -349,9 +385,12 @@ img {
   align-items: center;
   min-height: calc(100vh - 76px);
   padding: clamp(48px, 7vw, 96px) clamp(18px, 6vw, 92px) 36px;
-  background:
-    linear-gradient(135deg, rgba(255, 235, 85, .34) 0%, rgba(255, 253, 247, 0) 42%),
-    linear-gradient(180deg, rgba(255, 255, 255, .68), rgba(255, 250, 240, .58));
+  background-color: rgba(255, 252, 244, .9);
+  background-image:
+    linear-gradient(135deg, rgba(255, 235, 85, .2) 0%, rgba(255, 253, 247, .38) 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, .68), rgba(255, 250, 240, .58)),
+    var(--hanji-white);
+  background-size: auto, auto, 640px auto;
 }
 
 .hero::after {
@@ -540,7 +579,40 @@ h3 {
 
 .section-band {
   border-block: 1px solid var(--line);
-  background: rgba(255, 255, 255, .62);
+  background-color: rgba(255, 255, 255, .62);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .56), rgba(255, 250, 240, .66)),
+    var(--hanji-white);
+  background-size: auto, 620px auto;
+}
+
+.journey,
+.detail-page,
+.signup-page,
+.mypage {
+  background-color: rgba(255, 246, 226, .78);
+  background-image:
+    linear-gradient(180deg, rgba(255, 252, 244, .58), rgba(246, 232, 203, .66)),
+    var(--hanji-warm);
+  background-size: auto, 760px auto;
+}
+
+.gallery,
+.limited-sale,
+.directory-page,
+.proposal-page {
+  background-color: rgba(255, 255, 255, .8);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .68), rgba(250, 248, 241, .72)),
+    var(--hanji-white);
+  background-size: auto, 620px auto;
+}
+
+.limited-sale {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .journey,
@@ -552,6 +624,10 @@ h3 {
 .signup-page,
 .mypage {
   padding: clamp(54px, 7vw, 92px) clamp(18px, 6vw, 92px);
+}
+
+.limited-sale {
+  padding-inline: clamp(28px, 4vw, 76px);
 }
 
 .section-heading {
@@ -712,6 +788,110 @@ h3 {
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
   gap: 18px;
   margin-top: 30px;
+}
+
+.artisan-feature {
+  display: grid;
+  grid-template-columns: minmax(380px, .95fr) minmax(560px, 1.05fr);
+  gap: clamp(16px, 2.4vw, 28px);
+  margin-top: 22px;
+  align-items: stretch;
+}
+
+.artisan-feature-copy,
+.artisan-feature-note {
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, .82);
+  box-shadow: 0 16px 44px rgba(43, 31, 18, .08);
+}
+
+.artisan-feature-copy {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: clamp(22px, 3vw, 36px);
+}
+
+.artisan-feature-profile {
+  display: grid;
+  grid-template-columns: 148px minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.artisan-feature-profile img {
+  width: 148px;
+  height: 148px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.artisan-feature-copy h3 {
+  margin: 0;
+  font-size: clamp(28px, 3.25vw, 52px);
+  line-height: 1.14;
+  word-break: keep-all;
+}
+
+.artisan-feature-copy p:not(.eyebrow),
+.artisan-feature-note p,
+.artisan-work-card p {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.artisan-work-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-self: stretch;
+}
+
+.artisan-work-card {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 16px 44px rgba(43, 31, 18, .08);
+}
+
+.artisan-work-card.is-wide {
+  grid-column: 1 / -1;
+}
+
+.artisan-work-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.artisan-work-card div {
+  padding: 16px;
+}
+
+.artisan-work-card span,
+.artisan-feature-note strong {
+  display: block;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.artisan-work-card p {
+  margin: 8px 0 0;
+}
+
+.artisan-feature-note {
+  grid-column: 1 / -1;
+  padding: 18px 22px;
 }
 
 .lot-card {
@@ -1454,6 +1634,10 @@ h3 {
 }
 
 @media (max-width: 1080px) {
+  .artisan-feature {
+    grid-template-columns: 1fr;
+  }
+
   .artisan-grid,
   .work-grid,
   .work-detail-grid {
@@ -1473,6 +1657,7 @@ h3 {
   .hero,
   .sale-board,
   .lot-card,
+  .artisan-feature,
   .product-detail,
   .proposal-workspace,
   .signup-panel,
@@ -1497,6 +1682,10 @@ h3 {
   }
 
   .selected-artisan {
+    position: static;
+  }
+
+  .artisan-feature-copy {
     position: static;
   }
 }
@@ -1530,9 +1719,14 @@ h3 {
   .flow-list,
   .artisan-grid,
   .work-grid,
+  .artisan-work-gallery,
   .mypage-grid,
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .artisan-work-card.is-wide {
+    grid-column: auto;
   }
 
   .hero-art {
@@ -1632,6 +1826,17 @@ h3 {
   border-radius: 22px;
   background: rgba(255, 255, 255, .82);
   box-shadow: 0 12px 32px rgba(43, 31, 18, .06);
+}
+
+a.people-card {
+  color: inherit;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+a.people-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(27, 23, 20, .36);
+  box-shadow: 0 18px 44px rgba(43, 31, 18, .12);
 }
 
 .people-card .eyebrow {

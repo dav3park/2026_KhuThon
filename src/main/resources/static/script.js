@@ -679,16 +679,54 @@ function setupHeroProjectTicker() {
 function setupHomeHeader() {
   const header = document.querySelector(".site-header");
   const videoHero = document.querySelector(".video-hero");
-  if (!header || !videoHero) return;
+  if (!header) return;
+
+  const setHeaderTone = (tone) => {
+    header.classList.toggle("header-video", tone === "video");
+    header.classList.toggle("header-hanji-warm", tone === "warm");
+    header.classList.toggle("header-hanji-white", tone === "white");
+  };
+
+  const getStaticTone = () => {
+    if (document.querySelector("[data-page='mypage'], [data-page='product'], .detail-page")) return "warm";
+    return "white";
+  };
+
+  if (!videoHero) {
+    setHeaderTone(getStaticTone());
+    return;
+  }
+
+  const sections = [
+    { selector: ".video-hero", tone: "video" },
+    { selector: ".hero", tone: "white" },
+    { selector: "#journey", tone: "warm" },
+    { selector: "#artisan-month", tone: "white" },
+    { selector: "#gallery", tone: "white" },
+  ];
 
   const updateHeader = () => {
     const threshold = Math.max(120, videoHero.offsetHeight - 92);
     header.classList.toggle("is-solid", window.scrollY > threshold);
+    const probeY = header.offsetHeight + 18;
+    const visibleSection = document.elementFromPoint(window.innerWidth / 2, probeY)?.closest(".video-hero, .hero, #journey, #artisan-month, #gallery");
+    const visibleMatch = visibleSection
+      ? sections.find((section) => visibleSection.matches(section.selector))
+      : null;
+    const current = visibleMatch || sections.reduce((active, section) => {
+      const element = document.querySelector(section.selector);
+      if (!element) return active;
+      return element.getBoundingClientRect().top <= probeY ? section : active;
+    }, sections[0]);
+    setHeaderTone(current.tone);
   };
 
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
   window.addEventListener("resize", updateHeader);
+  window.addEventListener("load", () => window.setTimeout(updateHeader, 120));
+  window.addEventListener("hashchange", () => window.setTimeout(updateHeader, 120));
+  window.setTimeout(updateHeader, 260);
 }
 
 function setupScrollMotion() {
@@ -699,6 +737,9 @@ function setupScrollMotion() {
     ".journey .section-heading",
     ".flow-list li",
     ".limited-sale .section-heading",
+    ".artisan-feature-copy",
+    ".artisan-work-card",
+    ".artisan-feature-note",
     ".lot-card",
     ".certificate",
     ".gallery .section-heading",
@@ -863,7 +904,7 @@ function renderProductPeople(product) {
   }
   const artisanCard = artisan
     ? `
-      <article class="people-card people-artisan">
+      <a class="people-card people-artisan" href="/artisan-works.html?artisan=${product.artisanKey}" aria-label="${artisan.name} 장인 소개 페이지로 이동">
         <p class="eyebrow">Artisan</p>
         <div class="people-photo">
           <img src="${artisan.image}" alt="${artisan.name} ${artisan.field}">
@@ -872,7 +913,7 @@ function renderProductPeople(product) {
         <strong>${artisan.field}</strong>
         <span class="people-region">${artisan.region}</span>
         <p>${artisan.original}</p>
-      </article>
+      </a>
     `
     : "";
   const creatorPhoto = creator?.image
@@ -909,7 +950,7 @@ function renderArtisansPage() {
             <span>${artisan.summary}</span>
             <div class="card-actions">
               <button class="primary-button" type="button" data-propose="${id}">이 장인에게 제안</button>
-              <a class="secondary-button" href="/artisan-works.html?artisan=${id}">능력 보기</a>
+              <a class="secondary-button" href="/artisan-works.html?artisan=${id}">작품 보기</a>
             </div>
           </div>
         </article>
@@ -1269,7 +1310,7 @@ function setupNavIndicator() {
     }
     const linkByLabel = (label) => links.find((l) => l.textContent.trim().includes(label));
     if (path.startsWith("/artisan-works") || path.startsWith("/artisans") || path.startsWith("/proposal")) {
-      return linkByLabel("장인 찾기");
+      return linkByLabel("장인 소개");
     }
     if (path.startsWith("/product")) {
       return linkByLabel("프로젝트 갤러리");
