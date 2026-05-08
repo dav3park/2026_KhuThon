@@ -44,6 +44,10 @@ public class SecurityConfig {
                 .authenticationEntryPoint(jsonAuthenticationEntryPoint(objectMapper))
                 .accessDeniedHandler(jsonAccessDeniedHandler(objectMapper)))
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.GET,
+                        "/", "/index.html", "/*.html",
+                        "/styles.css", "/script.js",
+                        "/assets/**", "/favicon.ico").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/artisans/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
                 .requestMatchers("/api/admin/**").hasRole("OPERATOR")
