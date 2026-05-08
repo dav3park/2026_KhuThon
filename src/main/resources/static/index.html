@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Heritage Collaboration Lab</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Heritage Collaboration Lab">
+        <span class="brand-mark">匠</span>
+        <span>
+          <strong>Heritage Collaboration Lab</strong>
+          <small>헤리티지 콜라보 랩</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="/#gallery">프로젝트 갤러리</a>
+        <a href="/artisans.html">장인 찾기</a>
+        <a href="/artisan-works.html">장인 작업</a>
+        <a href="/#limited">한정 판매</a>
+      </nav>
+      <div class="auth-actions" data-auth-actions></div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">전통 장인 × 창작자 × 한정 프로젝트</p>
+          <h1>장인의 기술을 창작자의 감각으로 완성해 한정 수량으로 선보이다</h1>
+          <p class="hero-summary">
+            헤리티지 콜라보 랩은 전통 장인과 창작자가 함께 프로젝트를 진행하고,
+            완성된 결과물을 제작 과정과 협업 기록이 담긴 한정판 상품으로 판매하는 플랫폼입니다.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="/#gallery">프로젝트 보기</a>
+            <a class="secondary-button" href="/artisans.html">제안할 장인 찾기</a>
+          </div>
+          <dl class="hero-metrics" aria-label="서비스 핵심 흐름">
+            <div>
+              <dt>탐색</dt>
+              <dd>장인과 에셋 발견</dd>
+            </div>
+            <div>
+              <dt>협업</dt>
+              <dd>기획안 기반 프로젝트</dd>
+            </div>
+            <div>
+              <dt>한정</dt>
+              <dd>수량 공개 판매</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="hero-art" aria-label="전통 이미지 에셋 비주얼">
+          <img class="painting" src="/assets/tiger-painting.png" alt="민화 스타일 호랑이 그림">
+          <img class="line" src="/assets/artisan-hat.png" alt="갓을 제작하는 장인">
+          <div class="asset-ticket">
+            <span>Collaboration Project</span>
+            <strong>민화 그래픽 캡슐 컬렉션</strong>
+            <small>전통 이미지 에셋 · 창작자 상품 기획 · 한정 제작</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="journey" class="journey section-band">
+        <div class="section-heading">
+          <p class="eyebrow">Project Flow</p>
+          <h2>협업 프로젝트가 만들어지는 과정</h2>
+        </div>
+        <ol class="flow-list">
+          <li>
+            <span>1</span>
+            <strong>장인과 에셋 탐색</strong>
+            <p>기술 분야, 작업 이미지, 협업 가능 조건을 확인합니다.</p>
+          </li>
+          <li>
+            <span>2</span>
+            <strong>기획안 작성</strong>
+            <p>상품 콘셉트, 제작 방식, 수량, 일정, 판매 전략을 제안합니다.</p>
+          </li>
+          <li>
+            <span>3</span>
+            <strong>프로젝트 진행</strong>
+            <p>장인과 창작자가 역할을 나누고 제작 과정과 승인 이력을 기록합니다.</p>
+          </li>
+          <li>
+            <span>4</span>
+            <strong>한정 판매</strong>
+            <p>완성된 결과물을 정해진 수량으로 공개하고 재고를 투명하게 보여줍니다.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="gallery" class="gallery">
+        <div class="section-heading">
+          <p class="eyebrow">Project Gallery</p>
+          <h2>완성된 협업 프로젝트와 판매 예시</h2>
+          <p>카드를 좌우로 넘겨 살펴보고, 작품을 클릭하면 한정 판매 상세 페이지로 이동합니다.</p>
+        </div>
+        <div class="filter-bar" aria-label="프로젝트 필터">
+          <button class="filter active" type="button" data-filter="all">전체</button>
+          <button class="filter" type="button" data-filter="fashion">패션</button>
+          <button class="filter" type="button" data-filter="living">리빙</button>
+          <button class="filter" type="button" data-filter="art">아트</button>
+          <button class="filter" type="button" data-filter="sound">사운드</button>
+        </div>
+        <div class="carousel-shell">
+          <button class="carousel-button" type="button" data-carousel-prev aria-label="이전 프로젝트">‹</button>
+          <div class="asset-carousel" id="projectCarousel" aria-label="협업 프로젝트 목록">
+            <a class="asset-card" href="/product.html?id=tiger-jacket" data-category="fashion">
+              <img src="/assets/tiger-painting.png" alt="민화 그래픽 재킷 프로젝트">
+              <div>
+                <p>패션 · 한정 80개</p>
+                <h3>민화 수호 재킷</h3>
+                <span>민화 장인과 그래픽 창작자가 만든 리버서블 재킷</span>
+              </div>
+            </a>
+            <a class="asset-card" href="/product.html?id=line-case" data-category="fashion">
+              <img src="/assets/tiger-line.png" alt="선묘 패턴 모바일 케이스">
+              <div>
+                <p>패션 · 한정 120개</p>
+                <h3>선묘 패턴 케이스</h3>
+                <span>흑백 선화를 현대적인 모바일 액세서리로 전개</span>
+              </div>
+            </a>
+            <a class="asset-card" href="/product.html?id=beauty-overcoat" data-category="fashion">
+              <img src="/assets/collab-overcoat.png" alt="전통 금박 문양 오버코트">
+              <div>
+                <p>패션 · 한정 24개</p>
+                <h3>전통의 미 현대의 선 오버코트</h3>
+                <span>금박 문양과 현대 테일러링을 결합한 프리미엄 코트</span>
+              </div>
+            </a>
+            <a class="asset-card" href="/product.html?id=valuables-storage" data-category="living">
+              <img src="/assets/collab-storage.png" alt="전통 금박 귀중품 보관함">
+              <div>
+                <p>리빙 · 한정 30개</p>
+                <h3>귀중품 보관함</h3>
+                <span>금박과 입사 장식으로 완성한 현대적 보관 오브젝트</span>
+              </div>
+            </a>
+            <a class="asset-card" href="/product.html?id=bow-lamp" data-category="living">
+              <img src="/assets/artisan-bow.png" alt="활 제작 장인 협업 조명">
+              <div>
+                <p>리빙 · 한정 35개</p>
+                <h3>활 곡선 테이블 램프</h3>
+                <span>전통 활의 탄성과 곡선을 살린 조명 오브젝트</span>
+              </div>
+            </a>
+            <a class="asset-card" href="/product.html?id=hat-shade" data-category="living">
+              <img src="/assets/artisan-hat.png" alt="갓 장인 협업 조명 갓">
+              <div>
+                <p>리빙 · 한정 50개</p>
+                <h3>갓 그림자 스탠드</h3>
+                <span>갓의 직조 결을 은은한 빛의 패턴으로 확장</span>
+              </div>
+            </a>
+            <a class="asset-card" href="/product.html?id=tiger-print" data-category="art">
+              <img src="/assets/artisan-painting.png" alt="민화 장인 협업 프린트">
+              <div>
+                <p>아트 · 한정 70개</p>
+                <h3>수호의 선 프린트</h3>
+                <span>손그림 원본을 바탕으로 제작한 넘버링 아트 프린트</span>
+              </div>
+            </a>
+            <a class="asset-card" href="/product.html?id=wood-speaker" data-category="living">
+              <img src="/assets/artisan-wood.png" alt="목공 장인 협업 스피커">
+              <div>
+                <p>리빙 · 한정 40개</p>
+                <h3>결 소리 블루투스 스피커</h3>
+                <span>목공 장인의 조각 질감을 살린 데스크 스피커</span>
+              </div>
+            </a>
+            <a class="asset-card" href="/product.html?id=string-kit" data-category="sound">
+              <img src="/assets/artisan-gayageum.png" alt="가야금 장인 협업 사운드 키트">
+              <div>
+                <p>사운드 · 한정 100개</p>
+                <h3>현의 숨 샘플 키트</h3>
+                <span>전통 현악 소리를 창작자용 음원 패키지로 구성</span>
+              </div>
+            </a>
+          </div>
+          <button class="carousel-button" type="button" data-carousel-next aria-label="다음 프로젝트">›</button>
+        </div>
+      </section>
+
+      <section id="limited" class="limited-sale section-band">
+        <div class="section-heading">
+          <p class="eyebrow">Limited Sale</p>
+          <h2>판매 페이지는 가격, 참여자, 남은 재고를 중심으로</h2>
+        </div>
+        <div class="sale-board">
+          <article class="lot-card">
+            <div class="lot-image">
+              <img src="/assets/artisan-hat.png" alt="갓 그림자 스탠드 대표 이미지">
+            </div>
+            <div class="lot-info">
+              <p>NOW SELLING · 50개 한정</p>
+              <h3>갓 그림자 스탠드</h3>
+              <dl>
+                <div>
+                  <dt>판매가</dt>
+                  <dd>168,000원</dd>
+                </div>
+                <div>
+                  <dt>협업</dt>
+                  <dd>박소연 장인 × 윤하늘 조명 디자이너</dd>
+                </div>
+                <div>
+                  <dt>남은 재고</dt>
+                  <dd>18개</dd>
+                </div>
+              </dl>
+              <a class="primary-button compact" href="/product.html?id=hat-shade">상세 보기</a>
+            </div>
+          </article>
+          <div class="certificate">
+            <span>Project Record</span>
+            <strong>누가 만들었고, 어떤 과정으로 완성됐는지 함께 보여줍니다</strong>
+            <p>구매자는 결과물뿐 아니라 장인의 원천 기술, 창작자의 해석, 제작 수량과 남은 재고를 한 화면에서 확인합니다.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <strong>Heritage Collaboration Lab</strong>
+      <span>전통 기술과 창작 프로젝트를 연결하는 한정 판매 플랫폼</span>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
