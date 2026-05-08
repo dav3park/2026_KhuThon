@@ -6,7 +6,9 @@ const products = {
     image: "/assets/master-najeon-phone-case.png",
     price: "89,000원",
     artisan: "이형만 나전장",
-    creator: "모바일 액세서리 디자이너",
+    artisanKey: "najeon",
+    creator: "황진용 모바일 액세서리 디자이너",
+    creatorKey: "huang-jinyong",
     stock: 42,
     total: 100,
     description:
@@ -19,7 +21,9 @@ const products = {
     image: "/assets/master-nakhwa-device-case.png",
     price: "96,000원",
     artisan: "김영조 낙화장",
-    creator: "레더 굿즈 디자이너",
+    artisanKey: "nakhwa",
+    creator: "김병규 굿즈 디자이너",
+    creatorKey: "kim-byungkyu",
     stock: 28,
     total: 70,
     description:
@@ -32,7 +36,9 @@ const products = {
     image: "/assets/master-dancheong-bookmark.png",
     price: "32,000원",
     artisan: "유병순 단청장",
-    creator: "문구 제품 디자이너",
+    artisanKey: "dancheong",
+    creator: "㈜경희문구",
+    creatorKey: "kyunghee-stationery",
     stock: 86,
     total: 150,
     description:
@@ -45,7 +51,9 @@ const products = {
     image: "/assets/master-maedeup-keyring.png",
     price: "45,000원",
     artisan: "김혜순 매듭장",
-    creator: "라이프스타일 굿즈 디자이너",
+    artisanKey: "maedeup",
+    creator: "신정안 굿즈 디자이너",
+    creatorKey: "shin-jeongan",
     stock: 64,
     total: 120,
     description:
@@ -58,7 +66,9 @@ const products = {
     image: "/assets/master-goldfoil-coat.png",
     price: "1,290,000원",
     artisan: "김기호 금박장",
-    creator: "컨템포러리 패션 디자이너",
+    artisanKey: "goldfoil",
+    creator: "이승준 디자이너",
+    creatorKey: "lee-seungjun",
     stock: 7,
     total: 24,
     description:
@@ -71,7 +81,9 @@ const products = {
     image: "/assets/master-dyeing-blind.png",
     price: "260,000원",
     artisan: "정관채 염색장",
-    creator: "공간 패브릭 디자이너",
+    artisanKey: "dyeing",
+    creator: "박찬종 인테리어 디자이너",
+    creatorKey: "park-chanjong",
     stock: 16,
     total: 45,
     description:
@@ -84,11 +96,64 @@ const products = {
     image: "/assets/master-embroidery-denim.png",
     price: "248,000원",
     artisan: "김영이 자수장",
-    creator: "데님웨어 디자이너",
+    artisanKey: "embroidery",
+    creator: "성준 디자이너",
+    creatorKey: "seongjun",
     stock: 21,
     total: 60,
     description:
       "청자켓 위에 용맹한 한반도의 호랑이를 수놓은 웨어러블 작품입니다. 자수의 밀도와 실의 방향이 데님의 거친 질감 위에서 입체적으로 살아납니다.",
+  },
+};
+
+const inProgressProductIds = new Set([
+  "nakhwa-device-case",
+  "maedeup-keyring",
+  "dyeing-blind",
+]);
+
+const creators = {
+  "huang-jinyong": {
+    name: "황진용",
+    role: "모바일 액세서리 디자이너",
+    image: null,
+    summary: "일상에서 가장 자주 만지는 디바이스 표면을 통해 한국 전통 미감을 일상으로 옮기는 모바일 액세서리 디자이너입니다.",
+  },
+  "kim-byungkyu": {
+    name: "김병규",
+    role: "굿즈 디자이너",
+    image: null,
+    summary: "수공예 텍스처와 산업 디자인의 균형을 다루며, 가죽과 케이스 류의 굿즈에 전통 회화 언어를 입히는 작업을 합니다.",
+  },
+  "kyunghee-stationery": {
+    name: "㈜경희문구",
+    role: "문구 브랜드",
+    image: null,
+    summary: "오랜 문구 제조 경험을 바탕으로 전통 문양과 색채를 책갈피·노트·필기구로 풀어내는 문구 전문 협업사입니다.",
+  },
+  "shin-jeongan": {
+    name: "신정안",
+    role: "굿즈 디자이너",
+    image: null,
+    summary: "전통 매듭의 구조와 미니멀한 일상 소품을 결합하는 굿즈 디자이너로, 기하학적 형태와 색실 조합을 연구합니다.",
+  },
+  "lee-seungjun": {
+    name: "이승준",
+    role: "패션 디자이너",
+    image: "/assets/master-creator-lee-seungjun.jpeg",
+    summary: "한국 전통 의복의 권위와 형태를 현대 패션 실루엣으로 재해석하며, 표면 장식과 원단의 결합을 다루는 패션 디자이너입니다.",
+  },
+  "park-chanjong": {
+    name: "박찬종",
+    role: "인테리어 디자이너",
+    image: "/assets/master-creator-park-chanjong.jpeg",
+    summary: "공간의 빛과 패브릭의 흐름을 다루는 인테리어 디자이너로, 천연 염색의 색감을 실내 분위기로 옮기는 작업을 진행합니다.",
+  },
+  "seongjun": {
+    name: "성준",
+    role: "데님웨어 디자이너",
+    image: null,
+    summary: "데님 위에 서사가 있는 자수와 그래픽을 얹는 웨어 디자이너로, 한국적 상징을 거리감 있는 캐주얼웨어로 풀어냅니다.",
   },
 };
 
@@ -280,7 +345,12 @@ function setProductStock(id, stock) {
 
 function getProductView(id) {
   const product = products[id] || Object.values(products)[0];
-  return { ...product, stock: getProductStock(id) };
+  const inProgress = inProgressProductIds.has(id);
+  return {
+    ...product,
+    inProgress,
+    stock: inProgress ? product.total : getProductStock(id),
+  };
 }
 
 function ensureDemoUsers() {
@@ -501,36 +571,45 @@ function setupGallery() {
   const carousel = document.querySelector("#projectCarousel");
   if (carousel) {
     carousel.innerHTML = Object.entries(products)
-      .map(
-        ([id, product]) => `
-          <a class="asset-card" href="/product.html?id=${id}" data-category="${product.categorySlug}">
-            <img src="${product.image}" alt="${product.title}">
+      .map(([id, product]) => {
+        const inProgress = inProgressProductIds.has(id);
+        return `
+          <a class="asset-card ${inProgress ? "is-in-progress" : ""}" href="/product.html?id=${id}" data-category="${product.categorySlug}">
+            <div class="asset-card-media">
+              <img src="${product.image}" alt="${product.title}">
+              ${inProgress ? '<div class="progress-overlay"><span>현재 진행중</span></div>' : ""}
+            </div>
             <div>
               <p>${product.category} · 한정 ${product.total}개</p>
               <h3>${product.title}</h3>
               <span>${product.description}</span>
             </div>
           </a>
-        `
-      )
+        `;
+      })
       .join("");
   }
 
   const filters = document.querySelectorAll(".filter");
   const cards = document.querySelectorAll(".asset-card");
 
-  filters.forEach((filter) => {
-    filter.addEventListener("click", () => {
-      const selected = filter.dataset.filter;
-      filters.forEach((item) => item.classList.remove("active"));
-      filter.classList.add("active");
-      cards.forEach((card) => {
-        const isVisible = selected === "all" || card.dataset.category === selected;
-        card.classList.toggle("is-hidden", !isVisible);
-      });
-      carousel?.scrollTo({ left: 0, behavior: "smooth" });
+  const applyFilter = (selected) => {
+    filters.forEach((item) => item.classList.toggle("active", item.dataset.filter === selected));
+    cards.forEach((card) => {
+      const isVisible = selected === "all" || card.dataset.category === selected;
+      card.classList.toggle("is-hidden", !isVisible);
     });
+    carousel?.scrollTo({ left: 0, behavior: "smooth" });
+  };
+
+  filters.forEach((filter) => {
+    filter.addEventListener("click", () => applyFilter(filter.dataset.filter));
   });
+
+  const initialFilter = new URLSearchParams(window.location.search).get("filter");
+  if (initialFilter && document.querySelector(`.filter[data-filter="${initialFilter}"]`)) {
+    applyFilter(initialFilter);
+  }
 
   document.querySelector("[data-carousel-prev]")?.addEventListener("click", () => {
     carousel?.scrollBy({ left: -380, behavior: "smooth" });
@@ -695,33 +774,44 @@ function renderProductPage() {
   const sold = product.total - product.stock;
   const stockPercent = Math.max(4, Math.round((product.stock / product.total) * 100));
 
-  document.title = `${product.title} | Heritage Collaboration Lab`;
+  document.title = `${product.title} | 이음`;
+
+  const buyButtonLabel = product.inProgress
+    ? "진행중"
+    : product.stock < 1
+      ? "품절"
+      : "구매하기";
+  const buyButtonDisabled = product.inProgress || product.stock < 1;
+  const relatedHref = `/?filter=${product.categorySlug}#gallery`;
+
   detail.innerHTML = `
     <div class="product-image">
       <img src="${product.image}" alt="${product.title}">
     </div>
     <article class="product-copy">
-      <p class="eyebrow">${product.category} · ${product.total}개 한정 판매</p>
+      <p class="eyebrow">${product.category} · ${product.total}개 한정 판매${product.inProgress ? " · 현재 진행중" : ""}</p>
       <h1>${product.title}</h1>
       <p>${product.description}</p>
       <dl class="product-facts">
         <div><dt>판매가</dt><dd>${product.price}</dd></div>
         <div><dt>협업 장인</dt><dd>${product.artisan}</dd></div>
         <div><dt>협업 창작자</dt><dd>${product.creator}</dd></div>
-        <div><dt>판매 현황</dt><dd>${sold}개 판매 · ${product.stock}개 남음</dd></div>
+        <div><dt>판매 현황</dt><dd>${product.inProgress ? "프로젝트 진행 중" : `${sold}개 판매 · ${product.stock}개 남음`}</dd></div>
       </dl>
       <div class="stock-meter">
         <label><span>남은 재고</span><span>${product.stock} / ${product.total}</span></label>
         <div class="meter-track"><div class="meter-fill" style="width: ${stockPercent}%"></div></div>
       </div>
-      <p class="stock-note">한정 수량이 모두 판매되면 같은 구성으로는 다시 제작하지 않습니다.</p>
+      <p class="stock-note">${product.inProgress ? "현재 장인과 창작자가 함께 제작 중인 프로젝트입니다. 판매가 시작되면 알려드립니다." : "한정 수량이 모두 판매되면 같은 구성으로는 다시 제작하지 않습니다."}</p>
       <div class="product-actions">
-        <button class="primary-button" type="button" data-buy="${id}" ${product.stock < 1 ? "disabled" : ""}>${product.stock < 1 ? "품절" : "구매하기"}</button>
-        <a class="secondary-button" href="/#gallery">다른 프로젝트 보기</a>
+        <button class="primary-button" type="button" ${buyButtonDisabled ? "disabled" : `data-buy="${id}"`}>${buyButtonLabel}</button>
+        <a class="secondary-button" href="${relatedHref}">관련 프로젝트 보기</a>
         <button class="heart-button ${isSaved ? "is-saved" : ""}" type="button" data-save-project="${id}" aria-label="관심 프로젝트 ${isSaved ? "해제" : "추가"}">${isSaved ? "♥" : "♡"}</button>
       </div>
     </article>
   `;
+
+  renderProductPeople(product);
 
   document.querySelector("[data-buy]")?.addEventListener("click", () => {
     if (!requireLogin("구매하기는 로그인 후 이용할 수 있습니다.")) return;
@@ -760,6 +850,48 @@ function renderProductPage() {
     saveUsers(users);
     renderProductPage();
   });
+}
+
+function renderProductPeople(product) {
+  const target = document.querySelector("#productPeople");
+  if (!target) return;
+  const artisan = artisans[product.artisanKey];
+  const creator = creators[product.creatorKey];
+  if (!artisan && !creator) {
+    target.innerHTML = "";
+    return;
+  }
+  const artisanCard = artisan
+    ? `
+      <article class="people-card people-artisan">
+        <p class="eyebrow">Artisan</p>
+        <div class="people-photo">
+          <img src="${artisan.image}" alt="${artisan.name} ${artisan.field}">
+        </div>
+        <h3>${artisan.name}</h3>
+        <strong>${artisan.field}</strong>
+        <span class="people-region">${artisan.region}</span>
+        <p>${artisan.original}</p>
+      </article>
+    `
+    : "";
+  const creatorPhoto = creator?.image
+    ? `<img src="${creator.image}" alt="${creator.name} ${creator.role}">`
+    : `<span class="people-photo-placeholder">${(creator?.name || "?").slice(0, 1)}</span>`;
+  const creatorCard = creator
+    ? `
+      <article class="people-card people-creator">
+        <p class="eyebrow">Creator</p>
+        <div class="people-photo${creator.image ? "" : " is-placeholder"}">
+          ${creatorPhoto}
+        </div>
+        <h3>${creator.name}</h3>
+        <strong>${creator.role}</strong>
+        <p>${creator.summary}</p>
+      </article>
+    `
+    : "";
+  target.innerHTML = `${artisanCard}${creatorCard}`;
 }
 
 function renderArtisansPage() {
@@ -801,7 +933,7 @@ function renderWorksPage() {
   const id = getParam("artisan") || Object.keys(artisans)[0];
   const artisan = artisans[id] || Object.values(artisans)[0];
   const works = artisanWorkLists[id] || artisanWorkLists[Object.keys(artisanWorkLists)[0]];
-  document.title = `${artisan.name} 작업 목록 | Heritage Collaboration Lab`;
+  document.title = `${artisan.name} 작업 목록 | 이음`;
   grid.innerHTML = `
     <article class="work-profile">
       <img src="${artisan.image}" alt="${artisan.name} 작업 모습">
@@ -977,13 +1109,14 @@ function renderProposalEditPage() {
     </div>
   `;
 
+  const digitsOnly = (value) => String(value || "").replace(/[^\d]/g, "");
   form.elements.title.value = proposal.title || "";
   form.elements.concept.value = proposal.concept || "";
   form.elements.product.value = proposal.product || "";
   form.elements.craft.value = proposal.craft || "";
-  form.elements.quantity.value = proposal.quantity || "";
-  form.elements.price.value = proposal.price || "";
-  form.elements.schedule.value = proposal.schedule || "";
+  form.elements.quantity.value = digitsOnly(proposal.quantity);
+  form.elements.price.value = digitsOnly(proposal.price);
+  form.elements.schedule.value = digitsOnly(proposal.schedule);
   form.elements.portfolio.value = proposal.portfolio || "";
   form.elements.sales.value = proposal.sales || "";
 
@@ -1090,6 +1223,106 @@ function renderMyPage() {
   `;
 }
 
+function setupNavIndicator() {
+  const nav = document.querySelector(".site-header .nav");
+  if (!nav) return;
+  const links = Array.from(nav.querySelectorAll("a"));
+  if (!links.length) return;
+
+  let indicator = nav.querySelector(".nav-indicator");
+  if (!indicator) {
+    indicator = document.createElement("span");
+    indicator.className = "nav-indicator";
+    nav.appendChild(indicator);
+  }
+
+  const move = (link) => {
+    if (!link) {
+      indicator.style.opacity = "0";
+      links.forEach((l) => l.classList.remove("is-active"));
+      return;
+    }
+    links.forEach((l) => l.classList.toggle("is-active", l === link));
+    const navRect = nav.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    indicator.style.transform = `translateX(${linkRect.left - navRect.left}px)`;
+    indicator.style.width = `${linkRect.width}px`;
+    indicator.style.opacity = "1";
+  };
+
+  const path = window.location.pathname;
+  const isHome = path === "/" || path === "/index.html" || path === "";
+
+  const computeActive = () => {
+    if (isHome) {
+      const cutoff = window.scrollY + window.innerHeight * 0.35;
+      let candidate = null;
+      for (const link of links) {
+        const href = link.getAttribute("href") || "";
+        const hashIdx = href.indexOf("#");
+        if (hashIdx === -1) continue;
+        const id = href.substring(hashIdx + 1);
+        const el = id && document.getElementById(id);
+        if (el && el.offsetTop <= cutoff) candidate = link;
+      }
+      return candidate;
+    }
+    const linkByLabel = (label) => links.find((l) => l.textContent.trim().includes(label));
+    if (path.startsWith("/artisan-works") || path.startsWith("/artisans") || path.startsWith("/proposal")) {
+      return linkByLabel("장인 찾기");
+    }
+    if (path.startsWith("/product")) {
+      return linkByLabel("프로젝트 갤러리");
+    }
+    return null;
+  };
+
+  let activeLink = computeActive();
+  const reposition = () => move(activeLink);
+  reposition();
+
+  if (isHome) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        activeLink = computeActive();
+        reposition();
+      },
+      { passive: true }
+    );
+  }
+  window.addEventListener("resize", reposition);
+  window.addEventListener("load", reposition);
+
+  links.forEach((link) => {
+    link.addEventListener("mouseenter", () => move(link));
+  });
+  nav.addEventListener("mouseleave", () => move(activeLink));
+}
+
+function setupProposalUnitInputs() {
+  const forms = document.querySelectorAll("#deepProposalForm, #proposalEditForm");
+  forms.forEach((form) => {
+    form.querySelectorAll(".unit-input").forEach((wrapper) => {
+      const input = wrapper.querySelector("input");
+      if (!input) return;
+      const update = () => wrapper.classList.toggle("has-value", Boolean(input.value));
+      update();
+      input.addEventListener("input", update);
+    });
+
+    const priceInput = form.querySelector('input[name="price"]');
+    if (priceInput) {
+      const formatPrice = () => {
+        const digits = priceInput.value.replace(/[^\d]/g, "");
+        priceInput.value = digits ? Number(digits).toLocaleString("ko-KR") : "";
+      };
+      formatPrice();
+      priceInput.addEventListener("input", formatPrice);
+    }
+  });
+}
+
 renderAuthActions();
 setupHomeHeader();
 setupGallery();
@@ -1102,3 +1335,5 @@ renderProposalEditPage();
 renderSignupPage();
 renderMyPage();
 setupScrollMotion();
+setupNavIndicator();
+setupProposalUnitInputs();

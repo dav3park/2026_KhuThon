@@ -51,17 +51,23 @@
           <div class="form-row">
             <label>
               예상 제작 수량
-              <input required type="number" name="quantity" min="1">
+              <span class="unit-input" data-unit="개">
+                <input required type="number" name="quantity" min="1">
+              </span>
             </label>
             <label>
               예상 판매가
-              <input required type="text" name="price">
+              <span class="unit-input" data-unit="원">
+                <input required type="text" inputmode="numeric" name="price">
+              </span>
             </label>
           </div>
           <div class="form-row">
             <label>
               희망 제작 기간
-              <input required type="text" name="schedule">
+              <span class="unit-input" data-unit="주">
+                <input required type="number" name="schedule" min="1">
+              </span>
             </label>
             <label>
               창작자 포트폴리오
