@@ -1,248 +1,231 @@
 const products = {
-  "tiger-jacket": {
-    title: "민화 수호 재킷",
+  "najeon-phone-case": {
+    title: "나전 폰 케이스",
     category: "패션",
-    image: "/assets/tiger-painting.png",
-    price: "248,000원",
-    artisan: "한도윤 민화 장인",
-    creator: "이로운 그래픽 디자이너",
-    stock: 23,
-    total: 80,
+    categorySlug: "fashion",
+    image: "/assets/master-najeon-phone-case.png",
+    price: "89,000원",
+    artisan: "이형만 나전장",
+    creator: "모바일 액세서리 디자이너",
+    stock: 42,
+    total: 100,
     description:
-      "민화의 수호 이미지를 현대적인 스트리트웨어 그래픽으로 재해석한 리버서블 재킷입니다. 장인은 원본 선과 색의 기준을 잡고, 창작자는 착용 가능한 패턴과 패키지 그래픽으로 확장했습니다.",
+      "칠흑 같은 블랙 배경 위에 자개의 영롱한 광택을 얹은 폰 케이스입니다. 나전칠기의 깊은 반짝임을 일상에서 가장 자주 손에 드는 오브젝트로 옮겼습니다.",
   },
-  "line-case": {
-    title: "선묘 패턴 케이스",
+  "nakhwa-device-case": {
+    title: "낙화장 디바이스 케이스",
     category: "패션",
-    image: "/assets/tiger-line.png",
-    price: "39,000원",
-    artisan: "한도윤 민화 장인",
-    creator: "서민재 제품 디자이너",
+    categorySlug: "fashion",
+    image: "/assets/master-nakhwa-device-case.png",
+    price: "96,000원",
+    artisan: "김영조 낙화장",
+    creator: "레더 굿즈 디자이너",
+    stock: 28,
+    total: 70,
+    description:
+      "뜨거운 인두로 새긴 산수화의 깊이감과 가죽의 질감을 결합한 디바이스 케이스입니다. 손으로 태워 만든 선의 농담이 제품마다 다른 표정을 만듭니다.",
+  },
+  "dancheong-bookmark": {
+    title: "단청 책갈피",
+    category: "리빙",
+    categorySlug: "living",
+    image: "/assets/master-dancheong-bookmark.png",
+    price: "32,000원",
+    artisan: "유병순 단청장",
+    creator: "문구 제품 디자이너",
+    stock: 86,
+    total: 150,
+    description:
+      "오방색의 화려함과 민화 호랑이의 강렬한 에너지를 작은 책갈피에 담았습니다. 책 사이에서 단청의 색과 상징이 선명하게 드러나는 소장형 문구입니다.",
+  },
+  "maedeup-keyring": {
+    title: "전통 매듭 키링",
+    category: "패션",
+    categorySlug: "fashion",
+    image: "/assets/master-maedeup-keyring.png",
+    price: "45,000원",
+    artisan: "김혜순 매듭장",
+    creator: "라이프스타일 굿즈 디자이너",
     stock: 64,
     total: 120,
     description:
-      "전통 선묘 이미지를 얇은 흑백 패턴으로 다듬어 제작한 모바일 케이스입니다. 손그림의 밀도를 유지하면서 일상 제품에 부담 없이 사용할 수 있도록 구성했습니다.",
+      "기하학적인 엮임과 현대적인 미니멀리즘을 조화시킨 키링입니다. 전통 매듭의 구조미를 가방과 열쇠에 가볍게 걸 수 있는 형태로 풀었습니다.",
   },
-  "beauty-overcoat": {
-    title: "전통의 미 현대의 선 오버코트",
+  "goldfoil-coat": {
+    title: "금박 코트",
     category: "패션",
-    image: "/assets/collab-overcoat.png",
-    price: "1,090,000원",
+    categorySlug: "fashion",
+    image: "/assets/master-goldfoil-coat.png",
+    price: "1,290,000원",
     artisan: "김기호 금박장",
-    creator: "현대 테일러링 디자이너",
-    stock: 6,
+    creator: "컨템포러리 패션 디자이너",
+    stock: 7,
     total: 24,
     description:
-      "금박 문양을 현대적인 코트 실루엣에 적용한 고가 한정 컬렉션입니다. 국보급 문양에서 영감을 받은 선과 별자리 그래픽을 원단 위에 재해석했습니다.",
+      "곤룡포를 연상하게 하는 붉은빛 코트 위에 금박 문양을 입힌 한정 컬렉션입니다. 전통 권위의 상징을 현대적인 실루엣과 표면감으로 재해석했습니다.",
   },
-  "valuables-storage": {
-    title: "전통의 미 귀중품 보관함",
+  "dyeing-blind": {
+    title: "염색장 블라인드",
     category: "리빙",
-    image: "/assets/collab-storage.png",
-    price: "1,090,000원",
-    artisan: "김기호 금박장",
-    creator: "임사랑 입사 장인",
-    stock: 8,
-    total: 30,
+    categorySlug: "living",
+    image: "/assets/master-dyeing-blind.png",
+    price: "260,000원",
+    artisan: "정관채 염색장",
+    creator: "공간 패브릭 디자이너",
+    stock: 16,
+    total: 45,
     description:
-      "금박과 입사 장식을 결합한 귀중품 보관함입니다. 전통 장식의 밀도를 유지하면서 현대 생활 공간에서 사용할 수 있는 보관 오브젝트로 완성했습니다.",
+      "창문을 가렸음에도 운치 있는 자연을 보는 듯한 느낌을 주는 블라인드입니다. 염색장의 색과 번짐을 실내 빛의 흐름에 맞춰 재구성했습니다.",
   },
-  "bow-lamp": {
-    title: "활 곡선 테이블 램프",
-    category: "리빙",
-    image: "/assets/artisan-bow.png",
-    price: "212,000원",
-    artisan: "강태오 궁시장",
-    creator: "문지후 리빙 디자이너",
-    stock: 9,
-    total: 35,
+  "embroidery-denim-jacket": {
+    title: "자수 청자켓",
+    category: "패션",
+    categorySlug: "fashion",
+    image: "/assets/master-embroidery-denim.png",
+    price: "248,000원",
+    artisan: "김영이 자수장",
+    creator: "데님웨어 디자이너",
+    stock: 21,
+    total: 60,
     description:
-      "전통 활의 탄성과 곡선을 조명 프레임으로 옮긴 테이블 램프입니다. 장인의 휨 구조 이해와 창작자의 실내 조명 설계가 결합된 소량 제작 오브젝트입니다.",
-  },
-  "hat-shade": {
-    title: "갓 그림자 스탠드",
-    category: "리빙",
-    image: "/assets/artisan-hat.png",
-    price: "168,000원",
-    artisan: "박소연 갓 장인",
-    creator: "윤하늘 조명 디자이너",
-    stock: 18,
-    total: 50,
-    description:
-      "갓의 직조 결이 빛을 통과하며 생기는 그림자를 중심 경험으로 설계한 조명입니다. 전통 갓의 구조를 보존하면서 현대 공간에 어울리는 크기와 밝기로 조정했습니다.",
-  },
-  "tiger-print": {
-    title: "수호의 선 프린트",
-    category: "아트",
-    image: "/assets/artisan-painting.png",
-    price: "74,000원",
-    artisan: "한도윤 민화 장인",
-    creator: "고유진 일러스트레이터",
-    stock: 31,
-    total: 70,
-    description:
-      "장인의 원화 작업 과정을 바탕으로 제작한 넘버링 아트 프린트입니다. 종이 질감과 먹선의 흔적을 살려 공간에 걸 수 있는 포스터형 작품으로 완성했습니다.",
-  },
-  "wood-speaker": {
-    title: "결 소리 블루투스 스피커",
-    category: "리빙",
-    image: "/assets/artisan-wood.png",
-    price: "186,000원",
-    artisan: "오명환 목공 장인",
-    creator: "정라온 사운드 프로덕트 디자이너",
-    stock: 12,
-    total: 40,
-    description:
-      "목공 장인의 조각 질감을 스피커 그릴과 바디에 반영한 데스크 오브젝트입니다. 나무결의 촉감과 작은 방에 어울리는 소리를 함께 고려했습니다.",
-  },
-  "string-kit": {
-    title: "현의 숨 샘플 키트",
-    category: "사운드",
-    image: "/assets/artisan-gayageum.png",
-    price: "58,000원",
-    artisan: "이건우 악기장",
-    creator: "최해솔 음악 프로듀서",
-    stock: 46,
-    total: 100,
-    description:
-      "전통 현악기의 울림을 창작자용 음원 샘플과 짧은 제작 노트로 구성한 디지털 패키지입니다. 실제 연주 질감과 악기 제작자의 해설을 함께 담았습니다.",
+      "청자켓 위에 용맹한 한반도의 호랑이를 수놓은 웨어러블 작품입니다. 자수의 밀도와 실의 방향이 데님의 거친 질감 위에서 입체적으로 살아납니다.",
   },
 };
 
 const artisans = {
-  bow: {
-    name: "강태오",
-    field: "궁시장 · 전통 활 제작",
+  najeon: {
+    name: "이형만",
+    field: "나전장 · 나전칠기",
+    region: "경남 통영",
+    image: "/assets/master-najeon-artisan.png",
+    summary: "칠흑 같은 옻칠 바탕과 자개의 영롱한 광택을 다루며 모바일 액세서리, 오브제 협업에 적합합니다.",
+    original: "자개를 얇게 오려 붙이고 옻칠과 연마를 반복해 깊은 광택과 문양을 완성하는 나전칠기 작업을 이어왔습니다.",
+  },
+  nakhwa: {
+    name: "김영조",
+    field: "낙화장 · 낙화",
+    region: "충북 보은",
+    image: "/assets/master-nakhwa-artisan.png",
+    summary: "뜨거운 인두로 산수와 문양을 새기는 장인으로 가죽, 목재, 디바이스 케이스 협업에 강점이 있습니다.",
+    original: "불에 달군 인두의 온도와 압력을 조절해 종이, 나무, 가죽 위에 농담 있는 그림을 새겨왔습니다.",
+  },
+  dancheong: {
+    name: "유병순",
+    field: "단청장 · 단청",
     region: "전북 전주",
-    image: "/assets/artisan-bow.png",
-    summary: "나무와 뿔의 탄성을 다루는 활 제작 장인입니다. 곡선 구조, 리빙 오브젝트, 스포츠 굿즈 협업에 적합합니다.",
-    original: "물소뿔, 대나무, 힘줄을 겹겹이 붙여 활의 탄성과 균형을 맞추는 작업을 이어왔습니다.",
+    image: "/assets/master-dancheong-artisan.png",
+    summary: "오방색과 상징 문양을 기반으로 문구, 인테리어 포인트, 그래픽 굿즈 협업에 어울립니다.",
+    original: "건축 장식의 색과 문양을 복원하고 배치하며, 전통 색채의 균형과 상징성을 다루는 단청 작업을 지속합니다.",
   },
-  hat: {
-    name: "박소연",
-    field: "갓 장인 · 직조와 형태",
+  maedeup: {
+    name: "김혜순",
+    field: "매듭장 · 전통 매듭",
     region: "서울",
-    image: "/assets/artisan-hat.png",
-    summary: "갓의 얇은 결, 빛 투과, 원형 구조를 현대 제품으로 확장하는 협업을 선호합니다.",
-    original: "대나무와 말총을 얇게 엮어 빛이 통과하는 갓의 결, 형태, 마감 균형을 만드는 작업을 해왔습니다.",
-  },
-  painting: {
-    name: "한도윤",
-    field: "민화 장인 · 전통 회화",
-    region: "경기 수원",
-    image: "/assets/artisan-painting.png",
-    summary: "민화의 선, 색, 상징을 기반으로 패션 그래픽과 아트 프린트 프로젝트를 함께할 수 있습니다.",
-    original: "벽사, 길상, 풍요를 상징하는 민화 이미지를 손으로 그리고 채색하는 전통 회화 작업을 지속합니다.",
-  },
-  wood: {
-    name: "오명환",
-    field: "목공 장인 · 조각과 결",
-    region: "강원 원주",
-    image: "/assets/artisan-wood.png",
-    summary: "손 조각 질감과 목재 구조를 살린 소형 가구, 오브젝트, 스피커 협업에 강점이 있습니다.",
-    original: "목재의 결을 읽고 손조각으로 형태를 덜어내는 방식으로 생활 목물과 장식 오브젝트를 만듭니다.",
-  },
-  gayageum: {
-    name: "이건우",
-    field: "악기장 · 전통 현악기",
-    region: "경남 진주",
-    image: "/assets/artisan-gayageum.png",
-    summary: "현의 울림과 악기 구조를 다루며 사운드 키트, 전시 설치, 음악 굿즈 협업이 가능합니다.",
-    original: "오동나무 울림통과 현의 장력을 조율해 전통 현악기의 소리와 구조를 만드는 작업을 이어갑니다.",
+    image: "/assets/master-maedeup-artisan.png",
+    summary: "기하학적인 엮임과 섬세한 장식성을 바탕으로 키링, 주얼리, 패션 소품 협업에 적합합니다.",
+    original: "실의 장력과 매듭의 순서를 조절해 장식 매듭, 노리개, 생활 장신구를 만드는 작업을 이어왔습니다.",
   },
   goldfoil: {
     name: "김기호",
-    field: "금박장 · 금박 문양",
+    field: "금박장 · 금박질",
     region: "서울",
-    image: "/assets/artisan-goldfoil.png",
-    summary: "금박 문양을 직물과 제품 표면에 정교하게 올리는 작업을 기반으로 패션 협업에 적합합니다.",
+    image: "/assets/master-goldfoil-artisan.png",
+    summary: "직물 위에 금박 문양을 올리는 장인으로 프리미엄 패션과 무대 의상 협업에 강점이 있습니다.",
     original: "풀과 금박을 이용해 문양을 옷감 위에 입히며, 전통 의복과 장식천의 화려한 표면을 만들어왔습니다.",
   },
+  dyeing: {
+    name: "정관채",
+    field: "염색장 · 천연 염색",
+    region: "전남 나주",
+    image: "/assets/master-dyeing-artisan.png",
+    summary: "자연의 색과 번짐을 다루며 블라인드, 패브릭 패널, 홈 텍스타일 협업에 잘 맞습니다.",
+    original: "천연 염료의 농도, 온도, 시간에 따라 달라지는 색을 조절해 직물에 깊은 색감과 질감을 입혀왔습니다.",
+  },
   embroidery: {
-    name: "임사랑",
-    field: "자수장 · 전통 자수",
-    region: "충북 청주",
-    image: "/assets/artisan-embroidery.png",
-    summary: "실의 두께, 방향, 색감을 조절해 문양을 쌓는 장인으로 패브릭과 보관함 협업이 가능합니다.",
-    original: "비단 위에 길상 문양과 장식선을 수놓으며, 오래 쓰는 물건에 상징과 질감을 더하는 작업을 해왔습니다.",
+    name: "김영이",
+    field: "자수장 · 자수",
+    region: "부산",
+    image: "/assets/master-embroidery-artisan.jpeg",
+    summary: "실의 방향과 밀도로 형상을 쌓는 장인으로 데님웨어, 패브릭 아트, 패션 그래픽 협업에 적합합니다.",
+    original: "천 위에 상징 문양과 동물 이미지를 수놓으며, 실의 두께와 방향으로 입체감을 만드는 자수 작업을 이어왔습니다.",
   },
 };
 
 const stateKey = "heritageAuthState";
 const usersKey = "heritageUsers";
 const stockKey = "heritageProductStocks";
-const defaultPurchases = ["hat-shade", "valuables-storage"];
+const defaultPurchases = ["maedeup-keyring", "dancheong-bookmark"];
 const defaultProposals = [
   {
-    id: "demo-proposal-hat",
-    title: "갓 그림자 무드등 컬렉션",
-    concept: "갓의 직조 그림자를 실내 조명 경험으로 확장",
-    product: "소형 스탠드 조명 50개와 제작 기록 카드 구성",
-    craft: "박소연 장인의 말총 직조 밀도와 빛 투과 균형이 핵심입니다.",
-    quantity: "50",
-    price: "168,000원",
-    schedule: "6주",
+    id: "demo-proposal-najeon",
+    title: "나전 스마트 액세서리 캡슐",
+    concept: "자개의 광택을 모바일 액세서리 표면 경험으로 확장",
+    product: "나전 폰 케이스와 카드 지갑을 함께 구성한 100개 한정 컬렉션",
+    craft: "이형만 장인의 자개 재단과 옻칠 표면 마감이 핵심입니다.",
+    quantity: "100",
+    price: "89,000원",
+    schedule: "7주",
     portfolio: "",
-    sales: "한정 판매 페이지와 제작 과정 콘텐츠로 선주문을 받습니다.",
+    sales: "블랙 배경과 자개 광택을 강조한 촬영 콘텐츠로 예약 판매를 진행합니다.",
     status: "검토 중",
-    artisan: "박소연",
-    artisanId: "hat",
-    productId: "hat-shade",
+    artisan: "이형만",
+    artisanId: "najeon",
+    productId: "najeon-phone-case",
   },
   {
-    id: "demo-proposal-goldfoil",
-    title: "금박 패턴 스카프",
-    concept: "전통 금박 문양을 일상 패션 액세서리로 전환",
-    product: "실크 혼방 스카프 80장과 금박 문양 보증 카드",
-    craft: "김기호 장인의 금박 문양 배치와 표면 마감 기술이 필요합니다.",
-    quantity: "80",
-    price: "128,000원",
+    id: "demo-proposal-dyeing",
+    title: "자연 빛 염색 블라인드",
+    concept: "천연 염색의 번짐을 실내 빛과 만나는 패브릭 제품으로 전환",
+    product: "염색장 블라인드 45점과 설치 가이드 카드",
+    craft: "정관채 염색장의 색 농도 조절과 직물 번짐 표현이 필요합니다.",
+    quantity: "45",
+    price: "260,000원",
     schedule: "5주",
     portfolio: "",
-    sales: "시즌 룩북 촬영과 프로젝트 갤러리 연동 판매를 진행합니다.",
+    sales: "공간별 빛 연출 이미지를 중심으로 프로젝트 갤러리와 연동 판매합니다.",
     status: "초안 보완 요청",
-    artisan: "김기호",
-    artisanId: "goldfoil",
-    productId: "beauty-overcoat",
+    artisan: "정관채",
+    artisanId: "dyeing",
+    productId: "dyeing-blind",
   },
 ];
-const defaultSavedProjects = ["beauty-overcoat", "string-kit"];
+const defaultSavedProjects = ["goldfoil-coat", "embroidery-denim-jacket"];
 
 const artisanWorkLists = {
-  bow: [
-    { title: "전통 각궁 제작", period: "2018-2026", description: "물소뿔, 대나무, 힘줄을 겹쳐 활의 복원력과 균형을 맞춘 대표 작업입니다." },
-    { title: "활 곡선 연구 샘플", period: "2024", description: "활의 휨 구조를 조명과 가구 프레임에 적용하기 위한 소재 테스트입니다." },
-    { title: "궁시 체험 교구", period: "2023", description: "전통 활의 구조를 교육용 키트로 풀어낸 소량 제작 작업입니다." },
+  najeon: [
+    { title: "자개 문양 재단", period: "대표 작업", description: "얇은 자개를 문양에 맞춰 오리고 검은 옻칠 바탕 위에 배치하는 기초 작업입니다." },
+    { title: "옻칠 표면 연마", period: "마감 공정", description: "칠과 연마를 반복해 자개가 표면 아래에서 은은하게 빛나도록 광택을 조정합니다." },
+    { title: "생활 소품 나전 적용", period: "협업 연구", description: "폰 케이스, 카드 지갑, 소형 오브제처럼 손에 닿는 제품에 나전의 깊이를 옮깁니다." },
   ],
-  hat: [
-    { title: "말총 갓 복원", period: "2021-2026", description: "말총의 밀도와 대나무 골격을 맞춰 전통 갓 형태를 복원한 작업입니다." },
-    { title: "빛 투과 직조 샘플", period: "2025", description: "조명 협업을 위해 직조 간격과 그림자 패턴을 실험한 샘플입니다." },
-    { title: "소형 갓 오브제", period: "2024", description: "전시 공간에 맞춰 갓의 원형 구조를 축소한 장식 오브제입니다." },
+  nakhwa: [
+    { title: "산수 낙화 원화", period: "대표 작업", description: "인두의 온도와 속도로 선의 농담을 만들며 산수화의 깊이를 새깁니다." },
+    { title: "가죽 표면 낙화 테스트", period: "협업 연구", description: "가죽 결 위에 태운 선이 자연스럽게 스며들도록 압력과 시간을 조절합니다." },
+    { title: "디바이스 케이스 패턴화", period: "제품 전환", description: "낙화의 풍경을 작은 케이스 면적 안에 들어오도록 압축해 배치합니다." },
   ],
-  painting: [
-    { title: "호작도 민화 연작", period: "2020-2026", description: "벽사와 길상 상징을 중심으로 호랑이와 까치 이미지를 그린 연작입니다." },
-    { title: "흑백 선묘 원화", period: "2025", description: "모바일 케이스와 패턴 상품화를 위해 먹선 밀도를 정리한 원화 작업입니다." },
-    { title: "민화 색채 팔레트", period: "2024", description: "전통 채색을 현대 인쇄물에 적용하기 위한 색상 기준표입니다." },
+  dancheong: [
+    { title: "오방색 문양 배치", period: "대표 작업", description: "전통 색채의 대비와 반복을 활용해 단청 특유의 리듬을 만듭니다." },
+    { title: "민화 호랑이 그래픽 결합", period: "협업 연구", description: "단청 색과 호랑이 상징을 작은 문구 제품에 맞게 재구성합니다." },
+    { title: "소장형 책갈피 샘플", period: "제품 전환", description: "얇은 책갈피 위에서도 색이 선명하게 보이도록 문양 밀도와 여백을 조정합니다." },
   ],
-  wood: [
-    { title: "생활 목물 제작", period: "2017-2026", description: "나무결을 살린 소반, 함, 작은 수납 오브젝트 제작 작업입니다." },
-    { title: "손조각 스피커 그릴", period: "2025", description: "소리 통과와 촉감을 함께 고려한 스피커 전면 조각 샘플입니다." },
-    { title: "목재 마감 실험", period: "2024", description: "오일, 왁스, 천연 안료를 활용한 표면 마감 연구입니다." },
-  ],
-  gayageum: [
-    { title: "전통 현악기 제작", period: "2016-2026", description: "오동나무 울림통과 현 장력을 조율해 악기의 소리를 완성합니다." },
-    { title: "현 울림 샘플링", period: "2025", description: "창작자용 사운드 키트 제작을 위한 주법별 음원 기록 작업입니다." },
-    { title: "전시용 공명 구조", period: "2024", description: "악기의 울림 구조를 설치 작품으로 확장한 실험 작업입니다." },
+  maedeup: [
+    { title: "전통 매듭 구조 제작", period: "대표 작업", description: "매듭의 순서와 장력을 맞춰 기하학적인 형태와 균형을 만듭니다." },
+    { title: "미니멀 키링 샘플", period: "협업 연구", description: "전통 매듭의 장식성을 일상 소품 크기로 줄여 휴대성을 높입니다." },
+    { title: "색실 조합 테스트", period: "제품 전환", description: "현대적인 가방, 열쇠, 디바이스 액세서리에 어울리는 색 조합을 실험합니다." },
   ],
   goldfoil: [
-    { title: "전통 의복 금박", period: "2018-2026", description: "풀과 금박을 활용해 직물 위에 문양을 올리는 대표 작업입니다." },
-    { title: "금박 패턴 원단", period: "2025", description: "현대 코트와 스카프에 적용할 반복 문양 원단 테스트입니다." },
-    { title: "별자리 문양 재해석", period: "2024", description: "전통 장식 문양을 현대 그래픽으로 재구성한 협업 샘플입니다." },
+    { title: "전통 의복 금박", period: "대표 작업", description: "풀과 금박을 활용해 직물 위에 문양을 올리는 대표 작업입니다." },
+    { title: "붉은 코트 금박 배치", period: "협업 연구", description: "곤룡포를 연상시키는 붉은 원단에 금박 문양이 과하지 않도록 균형을 잡습니다." },
+    { title: "프리미엄 패션 표면 마감", period: "제품 전환", description: "착용성과 장식성을 함께 고려해 금박의 위치, 크기, 반복 간격을 조정합니다." },
+  ],
+  dyeing: [
+    { title: "천연 염색 색감 조율", period: "대표 작업", description: "염료의 농도와 시간에 따라 달라지는 직물의 색 깊이를 조절합니다." },
+    { title: "창가 빛 투과 테스트", period: "협업 연구", description: "블라인드가 빛을 받을 때 자연 풍경처럼 보이도록 색 번짐과 밀도를 실험합니다." },
+    { title: "공간 패브릭 샘플", period: "제품 전환", description: "실내 분위기와 채광 조건에 맞는 블라인드 원단 구성을 만듭니다." },
   ],
   embroidery: [
-    { title: "길상 문양 자수", period: "2019-2026", description: "비단 위에 장수와 복을 상징하는 문양을 쌓아 올리는 작업입니다." },
-    { title: "보관함 패브릭 장식", period: "2025", description: "금박 보관함 내부 패브릭과 장식선을 구성한 협업 작업입니다." },
-    { title: "색실 방향 연구", period: "2024", description: "빛의 방향에 따라 달라지는 자수 표면감을 정리한 샘플입니다." },
+    { title: "호랑이 자수 원형", period: "대표 작업", description: "실의 방향과 색을 겹쳐 호랑이의 용맹한 표정과 움직임을 만듭니다." },
+    { title: "데님 표면 자수 테스트", period: "협업 연구", description: "거친 데님 질감 위에서도 실의 입체감이 살아나도록 밀도와 방향을 조절합니다." },
+    { title: "웨어러블 자수 배치", period: "제품 전환", description: "자수 이미지가 착용자의 움직임과 자연스럽게 어울리도록 등판과 소매 위치를 설계합니다." },
   ],
 };
 
@@ -296,7 +279,7 @@ function setProductStock(id, stock) {
 }
 
 function getProductView(id) {
-  const product = products[id] || products["tiger-jacket"];
+  const product = products[id] || Object.values(products)[0];
   return { ...product, stock: getProductStock(id) };
 }
 
@@ -515,9 +498,26 @@ function renderAuthActions() {
 }
 
 function setupGallery() {
+  const carousel = document.querySelector("#projectCarousel");
+  if (carousel) {
+    carousel.innerHTML = Object.entries(products)
+      .map(
+        ([id, product]) => `
+          <a class="asset-card" href="/product.html?id=${id}" data-category="${product.categorySlug}">
+            <img src="${product.image}" alt="${product.title}">
+            <div>
+              <p>${product.category} · 한정 ${product.total}개</p>
+              <h3>${product.title}</h3>
+              <span>${product.description}</span>
+            </div>
+          </a>
+        `
+      )
+      .join("");
+  }
+
   const filters = document.querySelectorAll(".filter");
   const cards = document.querySelectorAll(".asset-card");
-  const carousel = document.querySelector("#projectCarousel");
 
   filters.forEach((filter) => {
     filter.addEventListener("click", () => {
@@ -550,7 +550,7 @@ function setupHeroProjectTicker() {
   const heroArt = document.querySelector(".hero-art");
   const frontImage = document.querySelector(".hero-card-front");
   const backImage = document.querySelector(".hero-card-back");
-  const projectIds = ["tiger-jacket", "hat-shade", "beauty-overcoat", "wood-speaker", "string-kit"];
+  const projectIds = Object.keys(products);
   let index = 0;
   let currentId = projectIds[0];
   let nextId = projectIds[1];
@@ -578,12 +578,12 @@ function setupHeroProjectTicker() {
 
   const updateProject = () => {
     if (!heroArt || !frontImage || !backImage) return;
+    currentId = nextId;
+    applyTicket(currentId);
     ticket.classList.add("is-switching");
     heroArt.classList.add("is-swapping");
     window.setTimeout(() => {
-      currentId = nextId;
       applyImage(frontImage, currentId);
-      applyTicket(currentId);
       index = (index + 1) % projectIds.length;
       queueNextImage();
       heroArt.classList.remove("is-swapping");
@@ -638,11 +638,12 @@ function setupScrollMotion() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove("is-visible");
         }
       });
     },
-    { threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
+    { threshold: 0.12, rootMargin: "-4% 0px -10% 0px" }
   );
 
   items.forEach((item) => observer.observe(item));
@@ -669,8 +670,8 @@ function renderProductPage() {
   const detail = document.querySelector("#productDetail");
   if (!detail) return;
 
-  const requestedId = getParam("id") || "tiger-jacket";
-  const id = products[requestedId] ? requestedId : "tiger-jacket";
+  const requestedId = getParam("id") || Object.keys(products)[0];
+  const id = products[requestedId] ? requestedId : Object.keys(products)[0];
   const product = getProductView(id);
   const auth = getCurrentAccount();
   const savedProjects = auth?.savedProjects || [];
@@ -781,9 +782,9 @@ function renderWorksPage() {
   const grid = document.querySelector("#workGrid");
   if (!grid) return;
 
-  const id = getParam("artisan") || "hat";
-  const artisan = artisans[id] || artisans.hat;
-  const works = artisanWorkLists[id] || artisanWorkLists.hat;
+  const id = getParam("artisan") || Object.keys(artisans)[0];
+  const artisan = artisans[id] || Object.values(artisans)[0];
+  const works = artisanWorkLists[id] || artisanWorkLists[Object.keys(artisanWorkLists)[0]];
   document.title = `${artisan.name} 작업 목록 | Heritage Collaboration Lab`;
   grid.innerHTML = `
     <article class="work-profile">
@@ -821,7 +822,8 @@ function renderProposalPage() {
     form.classList.add("is-locked");
   }
 
-  const artisan = artisans[getParam("artisan")] || artisans.hat;
+  const artisanKey = getParam("artisan") || Object.keys(artisans)[0];
+  const artisan = artisans[artisanKey] || Object.values(artisans)[0];
   selected.innerHTML = `
     <img src="${artisan.image}" alt="${artisan.name} ${artisan.field}">
     <div>
@@ -854,7 +856,7 @@ function renderProposalPage() {
         sales: String(formData.get("sales") || ""),
         status: "검토 중",
         artisan: artisan.name,
-        artisanId: getParam("artisan") || "hat",
+        artisanId: artisanKey,
         productId: getRelatedProductId(artisan.name),
       });
       saveUsers(users);
@@ -866,7 +868,7 @@ function renderProposalPage() {
 
 function getRelatedProductId(artisanName) {
   const found = Object.entries(products).find(([, product]) => product.artisan.includes(artisanName));
-  return found?.[0] || "hat-shade";
+  return found?.[0] || Object.keys(products)[0];
 }
 
 function renderSignupPage() {
@@ -947,7 +949,7 @@ function renderProposalEditPage() {
   }
 
   const { proposal } = found;
-  const artisan = artisans[proposal.artisanId] || Object.values(artisans).find((item) => item.name === proposal.artisan) || artisans.hat;
+  const artisan = artisans[proposal.artisanId] || Object.values(artisans).find((item) => item.name === proposal.artisan) || Object.values(artisans)[0];
   selected.innerHTML = `
     <img src="${artisan.image}" alt="${artisan.name} ${artisan.field}">
     <div>
