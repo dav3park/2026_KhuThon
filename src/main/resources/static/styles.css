@@ -113,8 +113,10 @@ img {
 .header-cta,
 .primary-button,
 .secondary-button,
+.heart-button,
 .proposal-form button,
 .deep-proposal-form button,
+.signup-form button,
 .auth-choice-grid button,
 .carousel-button,
 .filter {
@@ -131,8 +133,10 @@ img {
 .header-cta,
 .primary-button,
 .secondary-button,
+.heart-button,
 .proposal-form button,
 .deep-proposal-form button,
+.signup-form button,
 .auth-choice-grid button {
   display: inline-flex;
   align-items: center;
@@ -147,7 +151,8 @@ img {
 .header-cta,
 .primary-button,
 .proposal-form button,
-.deep-proposal-form button {
+.deep-proposal-form button,
+.signup-form button {
   background: var(--ink);
   color: rgba(255, 250, 240, .86);
 }
@@ -155,6 +160,18 @@ img {
 .secondary-button {
   background: transparent;
   color: rgba(27, 23, 20, .72);
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: .5;
+  transform: none;
+  box-shadow: none;
+}
+
+.primary-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .auth-actions {
@@ -174,6 +191,7 @@ img {
 .primary-button:hover,
 .proposal-form button:hover,
 .deep-proposal-form button:hover,
+.signup-form button:hover,
 .auth-choice-grid button:hover,
 .carousel-button:hover {
   transform: translateY(-2px);
@@ -182,6 +200,7 @@ img {
 }
 
 .secondary-button:hover,
+.heart-button:hover,
 .filter:hover {
   transform: translateY(-2px);
   border-color: var(--ink);
@@ -344,6 +363,7 @@ h3 {
 .directory-page,
 .proposal-page,
 .detail-page,
+.signup-page,
 .mypage {
   padding: clamp(54px, 7vw, 92px) clamp(18px, 6vw, 92px);
 }
@@ -694,6 +714,53 @@ h3 {
   line-height: 1.65;
 }
 
+.work-detail-grid {
+  grid-template-columns: minmax(280px, .85fr) minmax(320px, 1.15fr);
+  align-items: start;
+}
+
+.work-profile,
+.work-item {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--rice);
+  box-shadow: 0 16px 44px rgba(43, 31, 18, .08);
+}
+
+.work-profile img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom: 1px solid var(--line);
+}
+
+.work-profile div {
+  padding: 24px;
+}
+
+.work-profile p:not(.eyebrow),
+.work-item span {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.work-list {
+  display: grid;
+  gap: 12px;
+}
+
+.work-item {
+  padding: 22px;
+}
+
+.work-item p {
+  margin-bottom: 8px;
+  color: var(--red);
+  font-weight: 900;
+}
+
 .card-actions {
   display: grid;
   grid-template-columns: 1fr;
@@ -770,6 +837,22 @@ h3 {
   gap: 10px;
 }
 
+.heart-button {
+  width: 46px;
+  min-width: 46px;
+  padding: 0;
+  background: rgba(255, 255, 255, .55);
+  color: var(--red);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.heart-button.is-saved {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
 .proposal-workspace {
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
@@ -825,7 +908,8 @@ h3 {
 .deep-proposal-form input,
 .deep-proposal-form textarea,
 .proposal-form input,
-.proposal-form select {
+.proposal-form select,
+.signup-form input {
   width: 100%;
   min-height: 48px;
   padding: 12px 14px;
@@ -841,10 +925,83 @@ h3 {
 }
 
 .deep-proposal-form input:focus,
-.deep-proposal-form textarea:focus {
+.deep-proposal-form textarea:focus,
+.signup-form input:focus {
   outline: none;
   border-color: var(--blue);
   box-shadow: 0 0 0 4px rgba(23, 63, 95, .12);
+}
+
+.signup-panel {
+  display: grid;
+  grid-template-columns: minmax(280px, .85fr) minmax(320px, 1.15fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.signup-copy,
+.signup-form {
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 240, .8);
+}
+
+.signup-copy {
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.signup-copy h1 {
+  font-size: clamp(38px, 5vw, 68px);
+}
+
+.signup-copy p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.signup-form,
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+
+.signup-form {
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.signup-form label,
+.auth-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--soft-ink);
+  font-weight: 900;
+}
+
+.signup-form fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.signup-form legend {
+  padding: 0 6px;
+  color: var(--soft-ink);
+  font-weight: 900;
+}
+
+.signup-form fieldset label {
+  display: inline-flex;
+  grid-template-columns: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.signup-form input[type="radio"] {
+  width: auto;
+  min-height: auto;
 }
 
 .form-row {
@@ -858,6 +1015,23 @@ h3 {
   margin: 0;
   color: var(--red);
   font-weight: 900;
+}
+
+.proposal-edit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.deep-proposal-form .danger-button {
+  border-color: var(--red);
+  background: transparent;
+  color: var(--red);
+}
+
+.deep-proposal-form .danger-button:hover {
+  background: var(--red);
+  color: #fff;
 }
 
 .auth-modal-backdrop {
@@ -914,6 +1088,36 @@ h3 {
   display: grid;
   gap: 10px;
   margin-top: 24px;
+}
+
+.auth-form {
+  margin-top: 22px;
+}
+
+.auth-error {
+  min-height: 24px;
+  margin: 0;
+  color: var(--red);
+  font-weight: 900;
+}
+
+.auth-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 18px;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.auth-switch a,
+.auth-switch button {
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  cursor: pointer;
+  font-weight: 900;
 }
 
 .auth-choice-grid button {
@@ -986,6 +1190,14 @@ h3 {
   list-style: none;
 }
 
+.scrollable-list {
+  max-height: 132px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 4px;
+  scrollbar-color: rgba(27, 23, 20, .32) transparent;
+}
+
 .activity-list li {
   display: grid;
   gap: 4px;
@@ -994,13 +1206,29 @@ h3 {
   background: rgba(255, 255, 255, .46);
 }
 
+.activity-list a {
+  display: grid;
+  gap: 4px;
+}
+
+.activity-list li:has(a) {
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.activity-list li:has(a):hover {
+  transform: translateY(-2px);
+  border-color: rgba(27, 23, 20, .36);
+  box-shadow: 0 10px 24px rgba(27, 23, 20, .1);
+}
+
 .activity-list span {
   font-size: 14px;
 }
 
 @media (max-width: 1080px) {
   .artisan-grid,
-  .work-grid {
+  .work-grid,
+  .work-detail-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1014,7 +1242,9 @@ h3 {
   .sale-board,
   .lot-card,
   .product-detail,
-  .proposal-workspace {
+  .proposal-workspace,
+  .signup-panel,
+  .work-detail-grid {
     grid-template-columns: 1fr;
   }
 

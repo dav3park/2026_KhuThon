@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>회원가입 | Heritage Collaboration Lab</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Heritage Collaboration Lab">
+        <span class="brand-mark">匠</span>
+        <span>
+          <strong>Heritage Collaboration Lab</strong>
+          <small>헤리티지 콜라보 랩</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="/#artisan-month">이달의 장인 소개</a>
+        <a href="/#gallery">프로젝트 갤러리</a>
+        <a href="/artisans.html">장인 찾기</a>
+      </nav>
+      <div class="auth-actions" data-auth-actions></div>
+    </header>
+
+    <main class="signup-page" data-page="signup">
+      <section class="signup-panel">
+        <div class="signup-copy">
+          <p class="eyebrow">Create Account</p>
+          <h1>회원가입</h1>
+          <p>가입 후 입력한 아이디와 패스워드로 로그인할 수 있습니다. 창작자 계정은 운영자 승인 전까지 기획안 제안 기능이 제한됩니다.</p>
+        </div>
+        <form class="signup-form" id="signupForm">
+          <label>
+            이름
+            <input required type="text" name="name" autocomplete="name" placeholder="홍길동">
+          </label>
+          <label>
+            아이디
+            <input required type="text" name="id" autocomplete="username" minlength="3" placeholder="영문 또는 숫자 3자 이상">
+          </label>
+          <label>
+            패스워드
+            <input required type="password" name="password" autocomplete="new-password" minlength="4" placeholder="4자 이상">
+          </label>
+          <label>
+            패스워드 확인
+            <input required type="password" name="passwordConfirm" autocomplete="new-password" minlength="4" placeholder="패스워드 재입력">
+          </label>
+          <fieldset>
+            <legend>계정 유형</legend>
+            <label>
+              <input type="radio" name="role" value="consumer" checked>
+              소비자
+            </label>
+            <label>
+              <input type="radio" name="role" value="creator">
+              창작자
+            </label>
+          </fieldset>
+          <button type="submit">가입하기</button>
+          <p class="form-result" id="signupResult" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
