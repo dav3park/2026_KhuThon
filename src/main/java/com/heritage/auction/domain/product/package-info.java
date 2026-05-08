@@ -1,0 +1,1 @@
+package com.heritage.auction.domain.product;

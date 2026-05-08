@@ -1,13 +1,12 @@
-package com.example.khuthon;
+package com.heritage.auction;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KhuthonApplication {
+public class HeritageAuctionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(KhuthonApplication.class, args);
+        SpringApplication.run(HeritageAuctionApplication.class, args);
     }
-
 }
