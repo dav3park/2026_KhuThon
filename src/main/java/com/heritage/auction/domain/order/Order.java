@@ -32,7 +32,7 @@ public class Order extends BaseTimeEntity {
     private Long productId;
 
     @Column(nullable = false)
-    private Long buyerId;
+    private String buyerId;
 
     @Column(nullable = false)
     private Long price;

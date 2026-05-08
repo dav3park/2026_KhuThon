@@ -30,7 +30,7 @@ public class Proposal extends BaseTimeEntity {
     private Long artisanId;
 
     @Column(nullable = false)
-    private Long creatorId;
+    private String creatorId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -46,4 +46,8 @@ public class Proposal extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ProposalStatus status;
+
+    public void changeStatus(ProposalStatus status) {
+        this.status = status;
+    }
 }
