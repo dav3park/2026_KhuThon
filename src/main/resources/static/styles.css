@@ -27,9 +27,7 @@ body {
   color: var(--ink);
   font-family: "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
   background:
-    linear-gradient(90deg, rgba(27, 23, 20, .035) 1px, transparent 1px) 0 0 / 38px 38px,
-    radial-gradient(circle at 8% 12%, rgba(198, 154, 69, .16), transparent 24rem),
-    linear-gradient(180deg, #fffaf1 0%, #f3ead9 48%, #fff9ec 100%);
+    linear-gradient(180deg, #fffdf7 0%, #f7f4ed 46%, #fffaf0 100%);
 }
 
 a {
@@ -52,14 +50,14 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto minmax(240px, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
   padding: 16px clamp(18px, 4vw, 64px);
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 250, 240, .9);
-  backdrop-filter: blur(18px);
+  background: rgba(255, 253, 247, .88);
+  backdrop-filter: blur(22px);
 }
 
 .brand {
@@ -85,16 +83,11 @@ img {
   display: block;
 }
 
-.brand small {
-  margin-top: 2px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
 .nav {
   display: flex;
   gap: 8px;
   align-items: center;
+  justify-content: center;
   color: var(--muted);
   font-size: 15px;
 }
@@ -179,6 +172,7 @@ img {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 8px;
+  min-width: 220px;
 }
 
 .slim {
@@ -214,12 +208,29 @@ img {
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(340px, 520px);
   gap: clamp(30px, 5vw, 76px);
   align-items: center;
   min-height: calc(100vh - 76px);
   padding: clamp(48px, 7vw, 96px) clamp(18px, 6vw, 92px) 36px;
+  background:
+    linear-gradient(135deg, rgba(255, 235, 85, .34) 0%, rgba(255, 253, 247, 0) 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, .68), rgba(255, 250, 240, .58));
+}
+
+.hero::after {
+  position: absolute;
+  right: clamp(18px, 7vw, 110px);
+  bottom: clamp(22px, 6vw, 84px);
+  width: min(34vw, 420px);
+  height: 24px;
+  content: "";
+  border-radius: 999px;
+  background: rgba(27, 23, 20, .08);
+  filter: blur(10px);
 }
 
 .eyebrow {
@@ -241,8 +252,8 @@ p {
 h1 {
   max-width: 860px;
   margin-bottom: 22px;
-  font-size: clamp(42px, 5.8vw, 76px);
-  line-height: 1.06;
+  font-size: clamp(46px, 6.4vw, 86px);
+  line-height: 1.02;
   letter-spacing: 0;
   word-break: keep-all;
 }
@@ -302,6 +313,8 @@ h3 {
 .hero-art {
   position: relative;
   min-height: 620px;
+  transform: translate3d(0, calc(var(--hero-float, 0) * 1px), 0);
+  transition: transform .18s linear;
 }
 
 .hero-art img {
@@ -311,32 +324,72 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-.hero-art .painting {
+.hero-card {
+  transition:
+    transform 1.08s cubic-bezier(.16, 1, .3, 1),
+    opacity .86s ease,
+    filter .86s ease,
+    box-shadow .86s ease;
+  will-change: transform, opacity, filter;
+}
+
+.hero-card-front {
   top: 0;
   right: 0;
   width: min(82%, 420px);
   height: 560px;
   border: 12px solid #f3e5c4;
+  z-index: 2;
 }
 
-.hero-art .line {
+.hero-card-back {
   bottom: 18px;
   left: 0;
   width: min(58%, 292px);
   height: 430px;
   border: 10px solid #fff;
   object-position: center top;
+  z-index: 1;
+  filter: saturate(.94) brightness(.98);
+}
+
+.hero-art.is-swapping .hero-card-back {
+  transform: translate3d(96px, -102px, 0) scale(1.22);
+  z-index: 2;
+  filter: saturate(1) brightness(1);
+}
+
+.hero-art.is-swapping .hero-card-front {
+  transform: translate3d(-150px, 120px, 0) scale(.72);
+  opacity: .22;
+  filter: saturate(.7) blur(1px);
 }
 
 .asset-ticket {
   position: absolute;
   right: 26px;
   bottom: 0;
+  z-index: 5;
   width: min(78%, 360px);
   padding: 18px;
   border: 1px solid rgba(27, 23, 20, .22);
   background: rgba(255, 250, 240, .94);
   box-shadow: 0 16px 42px rgba(43, 31, 18, .15);
+  transition:
+    transform .42s cubic-bezier(.2, .8, .2, 1),
+    opacity .32s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+.asset-ticket:hover {
+  border-color: rgba(27, 23, 20, .42);
+  box-shadow: 0 22px 58px rgba(43, 31, 18, .2);
+}
+
+.asset-ticket.is-switching {
+  opacity: .18;
+  transform: translateY(16px) scale(.98);
 }
 
 .asset-ticket span,
@@ -354,7 +407,7 @@ h3 {
 
 .section-band {
   border-block: 1px solid var(--line);
-  background: rgba(255, 255, 255, .36);
+  background: rgba(255, 255, 255, .62);
 }
 
 .journey,
@@ -486,8 +539,9 @@ h3 {
   overflow: hidden;
   min-height: 470px;
   border: 1px solid var(--line);
-  background: var(--rice);
-  box-shadow: 0 16px 44px rgba(43, 31, 18, .08);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(43, 31, 18, .08);
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
@@ -533,6 +587,7 @@ h3 {
   min-height: 430px;
   overflow: hidden;
   border: 1px solid var(--line);
+  border-radius: 22px;
   background: var(--ink);
   color: #fff;
 }
@@ -594,9 +649,10 @@ h3 {
   min-height: 430px;
   padding: 30px;
   border: 1px solid var(--line);
+  border-radius: 22px;
   background:
-    linear-gradient(135deg, rgba(23, 63, 95, .1), transparent 42%),
-    var(--rice);
+    linear-gradient(135deg, rgba(255, 235, 85, .42), transparent 48%),
+    #fff;
 }
 
 .certificate span {
@@ -659,7 +715,8 @@ h3 {
   display: grid;
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--rice);
+  border-radius: 18px;
+  background: #fff;
   box-shadow: 0 16px 44px rgba(43, 31, 18, .08);
 }
 
@@ -793,7 +850,8 @@ h3 {
 .product-copy {
   padding: clamp(24px, 4vw, 42px);
   border: 1px solid var(--line);
-  background: rgba(255, 250, 240, .76);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .82);
 }
 
 .product-copy h1 {
@@ -865,7 +923,8 @@ h3 {
   top: 96px;
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--rice);
+  border-radius: 18px;
+  background: #fff;
 }
 
 .selected-artisan img {
@@ -891,7 +950,8 @@ h3 {
   gap: 18px;
   padding: clamp(24px, 4vw, 42px);
   border: 1px solid var(--line);
-  background: rgba(255, 250, 240, .8);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .82);
 }
 
 .deep-proposal-form h1 {
@@ -1225,6 +1285,41 @@ h3 {
   font-size: 14px;
 }
 
+.motion-item {
+  opacity: 0;
+  transform: translate3d(0, 56px, 0) scale(.992);
+  transition:
+    opacity 1.12s ease,
+    transform 1.12s cubic-bezier(.16, 1, .3, 1);
+  transition-delay: calc(var(--motion-order, 0) * 58ms);
+  will-change: opacity, transform;
+}
+
+.motion-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.motion-float {
+  transform: translate3d(0, calc(var(--scroll-shift, 0) * 1px), 0);
+  transition: transform .18s linear;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-item,
+  .motion-float,
+  .hero-art {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @media (max-width: 1080px) {
   .artisan-grid,
   .work-grid,
@@ -1234,6 +1329,10 @@ h3 {
 }
 
 @media (max-width: 980px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
   .nav {
     display: none;
   }
@@ -1286,6 +1385,10 @@ h3 {
     display: none;
   }
 
+  .auth-actions {
+    min-width: 92px;
+  }
+
   h1 {
     font-size: 40px;
   }
@@ -1303,12 +1406,12 @@ h3 {
     min-height: 500px;
   }
 
-  .hero-art .painting {
+  .hero-card-front {
     width: 82%;
     height: 430px;
   }
 
-  .hero-art .line {
+  .hero-card-back {
     width: 52%;
     height: 330px;
   }

@@ -540,6 +540,131 @@ function setupGallery() {
   });
 }
 
+function setupHeroProjectTicker() {
+  const ticket = document.querySelector("[data-hero-project]");
+  if (!ticket) return;
+
+  const title = ticket.querySelector("[data-hero-project-title]");
+  const summary = ticket.querySelector("[data-hero-project-summary]");
+  const label = ticket.querySelector("[data-hero-project-label]");
+  const heroArt = document.querySelector(".hero-art");
+  const frontImage = document.querySelector(".hero-card-front");
+  const backImage = document.querySelector(".hero-card-back");
+  const projectIds = ["tiger-jacket", "hat-shade", "beauty-overcoat", "wood-speaker", "string-kit"];
+  let index = 0;
+  let currentId = projectIds[0];
+  let nextId = projectIds[1];
+
+  const applyTicket = (id) => {
+    const project = products[id];
+    if (!project) return;
+    ticket.href = `/product.html?id=${id}`;
+    if (label) label.textContent = `${project.category} · ${project.total}개 한정`;
+    if (title) title.textContent = project.title;
+    if (summary) summary.textContent = `${project.artisan} × ${project.creator}`;
+  };
+
+  const applyImage = (image, id) => {
+    const project = products[id];
+    if (!project || !image) return;
+    image.src = project.image;
+    image.alt = project.title;
+  };
+
+  const queueNextImage = () => {
+    nextId = projectIds[(index + 1) % projectIds.length];
+    applyImage(backImage, nextId);
+  };
+
+  const updateProject = () => {
+    if (!heroArt || !frontImage || !backImage) return;
+    ticket.classList.add("is-switching");
+    heroArt.classList.add("is-swapping");
+    window.setTimeout(() => {
+      currentId = nextId;
+      applyImage(frontImage, currentId);
+      applyTicket(currentId);
+      index = (index + 1) % projectIds.length;
+      queueNextImage();
+      heroArt.classList.remove("is-swapping");
+      ticket.classList.remove("is-switching");
+    }, 980);
+  };
+
+  applyImage(frontImage, currentId);
+  applyTicket(currentId);
+  queueNextImage();
+  window.setInterval(updateProject, 10000);
+}
+
+function setupScrollMotion() {
+  const motionTargets = [
+    ".hero-copy",
+    ".hero-art",
+    ".journey .section-heading",
+    ".flow-list li",
+    ".limited-sale .section-heading",
+    ".lot-card",
+    ".certificate",
+    ".gallery .section-heading",
+    ".filter-bar",
+    ".asset-card",
+    ".page-hero",
+    ".artisan-card",
+    ".work-profile",
+    ".work-item",
+    ".product-image",
+    ".product-copy",
+    ".mypage-card",
+    ".signup-copy",
+    ".signup-form",
+    ".selected-artisan",
+    ".deep-proposal-form",
+  ];
+
+  const items = document.querySelectorAll(motionTargets.join(","));
+  items.forEach((item, index) => {
+    item.classList.add("motion-item");
+    item.style.setProperty("--motion-order", String(index % 6));
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
+  );
+
+  items.forEach((item) => observer.observe(item));
+
+  const floatTargets = document.querySelectorAll(".product-image, .certificate, .work-profile");
+  floatTargets.forEach((target) => target.classList.add("motion-float"));
+
+  const updateFloat = () => {
+    const viewportHeight = window.innerHeight || 1;
+    document.documentElement.style.setProperty("--hero-float", String(Math.round(window.scrollY * -0.035)));
+    floatTargets.forEach((target) => {
+      const rect = target.getBoundingClientRect();
+      const progress = (rect.top - viewportHeight / 2) / viewportHeight;
+      target.style.setProperty("--scroll-shift", String(Math.round(progress * -14)));
+    });
+  };
+
+  updateFloat();
+  window.addEventListener("scroll", updateFloat, { passive: true });
+  window.addEventListener("resize", updateFloat);
+}
+
 function renderProductPage() {
   const detail = document.querySelector("#productDetail");
   if (!detail) return;
@@ -949,6 +1074,7 @@ function renderMyPage() {
 
 renderAuthActions();
 setupGallery();
+setupHeroProjectTicker();
 renderProductPage();
 renderArtisansPage();
 renderWorksPage();
@@ -956,3 +1082,4 @@ renderProposalPage();
 renderProposalEditPage();
 renderSignupPage();
 renderMyPage();
+setupScrollMotion();
