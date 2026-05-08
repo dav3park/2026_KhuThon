@@ -597,10 +597,26 @@ function setupHeroProjectTicker() {
   window.setInterval(updateProject, 10000);
 }
 
+function setupHomeHeader() {
+  const header = document.querySelector(".site-header");
+  const videoHero = document.querySelector(".video-hero");
+  if (!header || !videoHero) return;
+
+  const updateHeader = () => {
+    const threshold = Math.max(120, videoHero.offsetHeight - 92);
+    header.classList.toggle("is-solid", window.scrollY > threshold);
+  };
+
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  window.addEventListener("resize", updateHeader);
+}
+
 function setupScrollMotion() {
   const motionTargets = [
     ".hero-copy",
     ".hero-art",
+    ".video-hero-copy",
     ".journey .section-heading",
     ".flow-list li",
     ".limited-sale .section-heading",
@@ -1075,6 +1091,7 @@ function renderMyPage() {
 }
 
 renderAuthActions();
+setupHomeHeader();
 setupGallery();
 setupHeroProjectTicker();
 renderProductPage();
