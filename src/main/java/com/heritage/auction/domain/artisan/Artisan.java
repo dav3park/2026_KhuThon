@@ -65,4 +65,8 @@ public class Artisan extends BaseTimeEntity {
 
     @Column(nullable = false)
     private boolean isNationalHeritage;
+
+    public void changeStatus(ArtisanStatus status) {
+        this.status = status;
+    }
 }
