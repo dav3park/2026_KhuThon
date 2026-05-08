@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.heritage.auction.domain.artisan.ArtisanNotFoundException;
+import com.heritage.auction.domain.artisan.ArtisanNotOpenException;
+import com.heritage.auction.domain.proposal.ProposalNotFoundException;
 import com.heritage.auction.global.response.ApiResponse;
 
 import lombok.extern.slf4j.Slf4j;
@@ -17,5 +19,15 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ArtisanNotFoundException.class)
     public ResponseEntity<ApiResponse<Void>> handleArtisanNotFound(ArtisanNotFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error(e.getMessage()));
+    }
+
+    @ExceptionHandler(ProposalNotFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleProposalNotFound(ProposalNotFoundException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error(e.getMessage()));
+    }
+
+    @ExceptionHandler(ArtisanNotOpenException.class)
+    public ResponseEntity<ApiResponse<Void>> handleArtisanNotOpen(ArtisanNotOpenException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.error(e.getMessage()));
     }
 }

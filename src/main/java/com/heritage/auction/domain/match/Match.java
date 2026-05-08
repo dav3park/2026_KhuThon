@@ -35,7 +35,7 @@ public class Match extends BaseTimeEntity {
     private Long proposalId;
 
     @Column(nullable = false)
-    private Long creatorId;
+    private String creatorId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
