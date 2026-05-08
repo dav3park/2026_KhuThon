@@ -16,7 +16,7 @@ public class ApiResponse<T> {
     private final T data;
 
     public static <T> ApiResponse<T> success(T data) {
-        return new ApiResponse<>(true, "OK", data);
+        return new ApiResponse<>(true, "요청이 성공했습니다", data);
     }
 
     public static <T> ApiResponse<T> success(String message, T data) {
