@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>기획 제안 작성 | 이음</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="이음">
+        <span class="brand-mark">匠</span>
+        <span>
+          <strong>이음</strong>
+        </span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="/#artisan-month">이달의 장인 소개</a>
+        <a href="/#gallery">이음 갤러리</a>
+        <a href="/artisans.html">장인 소개</a>
+      </nav>
+      <div class="auth-actions" data-auth-actions></div>
+    </header>
+
+    <main class="proposal-page" data-page="proposal">
+      <a class="back-link" href="/artisans.html">← 장인 목록으로 돌아가기</a>
+      <section class="proposal-workspace">
+        <aside class="selected-artisan" id="selectedArtisan"></aside>
+        <form class="deep-proposal-form" id="deepProposalForm">
+          <div>
+            <p class="eyebrow">Project Proposal</p>
+            <h1>협업 기획안 작성</h1>
+            <p>장인이 실제로 판단할 수 있도록 콘셉트, 제작 방식, 일정, 판매 계획을 구체적으로 적어주세요.</p>
+          </div>
+          <label>
+            프로젝트 제목
+            <input required type="text" name="title" placeholder="예: 갓의 그림자를 활용한 한정 조명 컬렉션">
+          </label>
+          <label>
+            한 줄 콘셉트
+            <input required type="text" name="concept" placeholder="전통 기법을 어떤 현대적 상품 경험으로 바꿀지 적어주세요">
+          </label>
+          <label>
+            만들고 싶은 결과물
+            <textarea required name="product" rows="5" placeholder="상품 형태, 소재, 크기, 사용 장면, 예상 구성품을 자세히 적어주세요"></textarea>
+          </label>
+          <label>
+            장인의 기술이 필요한 이유
+            <textarea required name="craft" rows="5" placeholder="선택한 장인의 기술 또는 이미지가 프로젝트에서 어떤 핵심 역할을 하는지 설명해주세요"></textarea>
+          </label>
+          <div class="form-row">
+            <label>
+              예상 제작 수량
+              <span class="unit-input" data-unit="개">
+                <input required type="number" name="quantity" min="1" placeholder="50">
+              </span>
+            </label>
+            <label>
+              예상 판매가
+              <span class="unit-input" data-unit="원">
+                <input required type="text" inputmode="numeric" name="price" placeholder="168,000">
+              </span>
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              희망 제작 기간
+              <span class="unit-input" data-unit="주">
+                <input required type="number" name="schedule" min="1" placeholder="6">
+              </span>
+            </label>
+            <label>
+              창작자 포트폴리오
+              <input type="url" name="portfolio" placeholder="https://">
+            </label>
+          </div>
+          <label>
+            판매와 홍보 계획
+            <textarea name="sales" rows="5" placeholder="판매 채널, 콘텐츠 촬영 계획, 선주문 여부, 재고 소진 방식 등을 적어주세요"></textarea>
+          </label>
+          <button type="submit">기획안 제출하기</button>
+          <p class="form-result" id="proposalResult" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

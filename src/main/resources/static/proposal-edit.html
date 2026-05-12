@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>기획안 수정 | 이음</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="이음">
+        <span class="brand-mark">匠</span>
+        <span>
+          <strong>이음</strong>
+        </span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="/#artisan-month">이달의 장인 소개</a>
+        <a href="/#gallery">이음 갤러리</a>
+        <a href="/artisans.html">장인 소개</a>
+      </nav>
+      <div class="auth-actions" data-auth-actions></div>
+    </header>
+
+    <main class="proposal-page" data-page="proposal-edit">
+      <a class="back-link" href="/mypage.html">← 마이페이지로 돌아가기</a>
+      <section class="proposal-workspace">
+        <aside class="selected-artisan" id="editProposalSummary"></aside>
+        <form class="deep-proposal-form" id="proposalEditForm">
+          <div>
+            <p class="eyebrow">Edit Proposal</p>
+            <h1>기획안 내용 수정</h1>
+            <p>이미 제안한 기획안의 콘셉트, 제작 방식, 일정, 판매 계획을 다시 정리할 수 있습니다.</p>
+          </div>
+          <label>
+            프로젝트 제목
+            <input required type="text" name="title">
+          </label>
+          <label>
+            한 줄 콘셉트
+            <input required type="text" name="concept">
+          </label>
+          <label>
+            만들고 싶은 결과물
+            <textarea required name="product" rows="5"></textarea>
+          </label>
+          <label>
+            장인의 기술이 필요한 이유
+            <textarea required name="craft" rows="5"></textarea>
+          </label>
+          <div class="form-row">
+            <label>
+              예상 제작 수량
+              <span class="unit-input" data-unit="개">
+                <input required type="number" name="quantity" min="1">
+              </span>
+            </label>
+            <label>
+              예상 판매가
+              <span class="unit-input" data-unit="원">
+                <input required type="text" inputmode="numeric" name="price">
+              </span>
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              희망 제작 기간
+              <span class="unit-input" data-unit="주">
+                <input required type="number" name="schedule" min="1">
+              </span>
+            </label>
+            <label>
+              창작자 포트폴리오
+              <input type="url" name="portfolio" placeholder="https://">
+            </label>
+          </div>
+          <label>
+            판매와 홍보 계획
+            <textarea name="sales" rows="5"></textarea>
+          </label>
+          <div class="proposal-edit-actions">
+            <button type="submit">수정하기</button>
+            <button class="danger-button" type="button" data-delete-proposal>취소하기</button>
+          </div>
+          <p class="form-result" id="proposalEditResult" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
