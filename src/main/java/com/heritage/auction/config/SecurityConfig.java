@@ -62,7 +62,7 @@ public class SecurityConfig {
     }
 
     private static AuthenticationEntryPoint jsonAuthenticationEntryPoint(ObjectMapper objectMapper) {
-        return (request, response, ex) ->
+        return (request, response, 오ex) ->
                 writeError(response, objectMapper, HttpStatus.UNAUTHORIZED, "인증이 필요합니다");
     }
 
